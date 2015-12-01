@@ -41,13 +41,14 @@ Article.prototype.timestamp = function( ) {
 
 Article.prototype.toHTML = function () {
   var $articleCopy = $('#blogPosts').clone();
-  $articleCopy.children('.title').html(this.title);
+  $articleCopy.find('.title').html(this.title);
   $articleCopy.find('.author').html('By ' + this.author);
-  $articleCopy.children('.authorUrl').attr('href', this.authorUrl);
-  $articleCopy.children('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
-  $articleCopy.children('.category').html('Category: ' + this.category);
-  $articleCopy.children('.body').html(this.body);
+  $articleCopy.find('.authorUrl').attr('href', this.authorUrl);
+  $articleCopy.find('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
+  $articleCopy.find('.category').html('Category: ' + this.category);
+  $articleCopy.find('.parBod').html(this.body);
   $articleCopy.appendTo('main');
+  $articleCopy.removeAttr('id').addClass('blogPosts');
 };
 
 blog.createArticles = function() {
@@ -58,7 +59,12 @@ blog.createArticles = function() {
   }
 };
 
+blog.truncateArticles = function() {
+  $('.parBod p:not(:first-child)').hide();
+};
+
 $(document).ready(function(){
   blog.sortArticles();
   blog.createArticles();
+  blog.truncateArticles();
 });
