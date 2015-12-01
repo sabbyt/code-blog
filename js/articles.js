@@ -6,11 +6,13 @@ var Article = function(props) {
   this.date = props.publishedOn;
   this.publishedOn = Date.parse(props.publishedOn);
   this.body = props.body;
-}
+};
 
 blog.articles.sort(function(a, b) {
   return b.publishedOn-a.publishedOn;
 });
+
+//date math adapted from http://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best
 
 Article.prototype.timestamp = function( ) {
   var now = Date.parse(new Date());
@@ -25,25 +27,25 @@ Article.prototype.timestamp = function( ) {
   if (elapsed < msPerMinute) {
     return Math.round(elapsed/1000) + ' seconds ago';
   }else if (elapsed < msPerHour) {
-    return Math.round(elapsed/msPerMinute) + ' minutes ago'
+    return Math.round(elapsed/msPerMinute) + ' minutes ago';
   }else if (elapsed < msPerDay ) {
-    return Math.round(elapsed/msPerHour ) + ' hours ago';
+    return Math.round(elapsed/msPerHour) + ' hours ago';
   }else if (elapsed < msPerMonth) {
     return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';
   }else if (elapsed < msPerYear) {
     return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
   }else {
-    return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';
+    return 'approximately ' + Math.round(elapsed/msPerYear) + ' years ago';
   }
 };
 
 Article.prototype.toHTML = function () {
   var $articleCopy = $('#blogPosts').clone();
   $articleCopy.children('.title').html(this.title);
-  $articleCopy.find('.author').html("By " + this.author);
+  $articleCopy.find('.author').html('By ' + this.author);
   $articleCopy.children('.authorUrl').attr('href', this.authorUrl);
-  $articleCopy.children('.publishedOn').html("Published on " + this.date + ", " + this.timestamp());
-  $articleCopy.children('.category').html(this.category);
+  $articleCopy.children('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
+  $articleCopy.children('.category').html('Category: ' + this.category);
   $articleCopy.children('.body').html(this.body);
   $articleCopy.appendTo('main');
 };
@@ -53,4 +55,4 @@ for (var i=0; i<blog.rawData.length; i+=1) {
   blog.articles.push(callObject);
   console.log('Post working '+ i);
   callObject.toHTML();
-};
+}
