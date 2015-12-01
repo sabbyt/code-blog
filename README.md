@@ -1,13 +1,29 @@
 # 301-blog
 
-Assignment for Day 1 of Code Fellows 301.
+Assignment for Day 1 of Code Fellows 301:
 
 * User stories derived from assignment prompt.
 
-* Collaborated with Pat Yau.
+* Collaborated with Pat Yau and help from Nat Chow and TA Brian Ray.
 
-* Help from Nat Chow and TA Brian Ray.
+* Utilises normalize.css, skeleton.css and jQuery.
 
-* Utilises skeleton.css and jQuery.
+* Built HTML basic structure in index.html including nav bar, added basic css including css reset, added skeleton.css and normalize.css for cross-browser functionality.
 
-* Date math adapted from [Stacked Overflow](http://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best)
+* Created Article constructor to format blog raw data.
+
+* Added sort function to show most recent articles on top.
+
+* Used jQuery to dynamically render to DOM.
+
+* Added relative timestamps based on date math adapted from [Stacked Overflow](http://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best)
+
+Assignment for Day 2 of Code Fellows 301:
+
+* New user stories derived from assignment prompt.
+
+* Truncate articles including adding read-on button feature.
+
+* Added filters by name and category.
+
+* Added more css styling.
