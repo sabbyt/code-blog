@@ -8,21 +8,17 @@ var Article = function(props) {
 }
 
 Article.prototype.toHTML = function () {
-  console.log("Doing this " + i);
   var $articleCopy = $('#blogPosts').clone();
   $articleCopy.children('.title').html(this.title);
   $articleCopy.find('.author').html(this.author);
   $articleCopy.children('.authorUrl').attr('href', this.authorUrl);
   $articleCopy.children('.publishedOn').html(this.publishedOn);
+  $articleCopy.children('.category').html(this.category);
+  $articleCopy.children('.body').html(this.body);
   $articleCopy.appendTo('main');
 };
-
-blog.rawData.sort(function(a, b) {
-  return b.publishedOn - a.publishedOn;
-});
 
 for (var i=0; i<blog.rawData.length; i+=1) {
   var callObject = new Article(blog.rawData[i]);
   callObject.toHTML();
-  console.log("This is actually working " + i);
 };
