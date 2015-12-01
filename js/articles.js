@@ -8,11 +8,11 @@ var Article = function(props) {
   this.body = props.body;
 };
 
-blog.articles.sort(function(a, b) {
-  return b.publishedOn-a.publishedOn;
-});
-
-//date math adapted from http://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best
+blog.sortArticles = function() {
+  blog.articles.sort(function(a, b) {
+    return b.publishedOn-a.publishedOn;
+  });
+};
 
 Article.prototype.timestamp = function( ) {
   var now = Date.parse(new Date());
@@ -50,9 +50,14 @@ Article.prototype.toHTML = function () {
   $articleCopy.appendTo('main');
 };
 
-for (var i=0; i<blog.rawData.length; i+=1) {
-  var callObject = new Article(blog.rawData[i]);
-  blog.articles.push(callObject);
-  console.log('Post working '+ i);
-  callObject.toHTML();
-}
+blog.createArticles = function() {
+  for (var i=0; i<blog.rawData.length; i+=1) {
+    var callObject = new Article(blog.rawData[i]);
+    blog.articles.push(callObject);
+    console.log('Post working '+ i);
+    callObject.toHTML();
+  }
+};
+
+blog.sortArticles();
+blog.createArticles();
