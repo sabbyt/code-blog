@@ -8,6 +8,10 @@ var Article = function(props) {
   this.body = props.body;
 }
 
+blog.articles.sort(function(a, b) {
+  return b.publishedOn-a.publishedOn;
+});
+
 Article.prototype.timestamp = function( ) {
   var now = Date.parse(new Date());
   var msPerMinute = 60 * 1000;
