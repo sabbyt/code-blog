@@ -3,7 +3,7 @@ var Article = function(props) {
   this.category = props.category;
   this.author = props.author;
   this.authorUrl = props.authorUrl;
-  this.publishedOn = props.publishedOn;
+  this.publishedOn = Date.parse(props.publishedOn);
   this.body = props.body;
 }
 
@@ -20,5 +20,7 @@ Article.prototype.toHTML = function () {
 
 for (var i=0; i<blog.rawData.length; i+=1) {
   var callObject = new Article(blog.rawData[i]);
+  blog.articles.push(callObject);
+  console.log('Post working '+ i);
   callObject.toHTML();
 };
