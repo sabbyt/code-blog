@@ -10,6 +10,13 @@ header, body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, {
     font-family: Garamond;
 }
 
+header h1 {
+  margin-top: 50px;
+  text-align: center;
+  font-family: Garamond, Baskerville, serif;
+  font-size: 70px;
+}
+
 article {
   margin-left: 100px;
   margin-right: 100px;
