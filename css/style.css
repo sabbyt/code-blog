@@ -23,6 +23,13 @@ article {
   font-family: Garamond, Baskerville, serif;
 }
 
+img {
+  min-width: 300px;
+  max-width: 300px;
+  display: block;
+  margin: 10px auto;
+}
+
 #navbar {
   width: auto;
   background: white;

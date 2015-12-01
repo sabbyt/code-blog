@@ -54,10 +54,11 @@ blog.createArticles = function() {
   for (var i=0; i<blog.rawData.length; i+=1) {
     var callObject = new Article(blog.rawData[i]);
     blog.articles.push(callObject);
-    console.log('Post working '+ i);
     callObject.toHTML();
   }
 };
 
-blog.sortArticles();
-blog.createArticles();
+$(document).ready(function(){
+  blog.sortArticles();
+  blog.createArticles();
+});
