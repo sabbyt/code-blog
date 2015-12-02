@@ -21,7 +21,7 @@ blog.sortArticlesAuthor = function() {
   });
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
-    $authorList.append("<option value='"+blogAuthorAlpha[i].author+ "'>" +blogAuthorAlpha[i].author+"</option>");
+    $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
     $authorList.appendTo('#selectAuthor');
     console.log('author work');
   }
@@ -34,7 +34,7 @@ blog.sortArticlesCategory = function() {
   });
   for (var i=0; i<blogCatAlpha.length; i+=1) {
     var $catList = $('#dropdownCategory').clone();
-    $catList.append("<option>"+blogCatAlpha[i].category+"</option>");
+    $catList.append('<option>'+blogCatAlpha[i].category+'</option>');
     $catList.appendTo('#selectCat');
     console.log('cat work');
   }
@@ -122,9 +122,9 @@ $('select').change(function(){
       console.log(blogdata[i].author);
       console.log(blogdata[i]);
       var populate = document.getElementById('blogPosts');
-      populate.innerHTML = "<h1>" + blogdata[i].title + "</h1>";
-      populate.innerHTML += "<a href='" + blogdata[i].authorUrl + "'><h5>" + blogdata[i].author + "</h5></a>";
-      populate.innerHTML += "<h6>Category: " + blogdata[i].category + "</h6>";
+      populate.innerHTML = '<h1>' + blogdata[i].title + '</h1>';
+      populate.innerHTML += '<a href="' + blogdata[i].authorUrl + '"><h5>' + blogdata[i].author + '</h5></a>';
+      populate.innerHTML += '<h6>Category: ' + blogdata[i].category + '</h6>';
       populate.innerHTML += blogdata[i].body;
 
       $('#blogPosts').removeAttr('style');
