@@ -8,10 +8,36 @@ var Article = function(props) {
   this.body = props.body;
 };
 
-blog.sortArticles = function() {
+blog.sortArticlesDate = function() {
   blog.articles.sort(function(a, b) {
     return b.publishedOn-a.publishedOn;
   });
+};
+
+blog.sortArticlesAuthor = function() {
+  var blogAuthorAlpha = blog.articles;
+  blogAuthorAlpha.sort(function(a, b) {
+    return b.author-a.author;
+  });
+  for (var i=0; i<blogAuthorAlpha.length; i+=1) {
+    var $authorList = $('#dropdownAuthor').clone();
+    $authorList.append("<option>"+blogAuthorAlpha[i].author+"</option>");
+    $authorList.appendTo('#selectAuthor');
+    console.log('author work');
+  }
+};
+
+blog.sortArticlesCategory = function() {
+  var blogCatAlpha = blog.articles;
+  blogCatAlpha.sort(function(a, b) {
+    return b.category-a.category;
+  });
+  for (var i=0; i<blogCatAlpha.length; i+=1) {
+    var $catList = $('#dropdownCategory').clone();
+    $catList.append("<option>"+blogCatAlpha[i].category+"</option>");
+    $catList.appendTo('select');
+    console.log('cat work');
+  }
 };
 
 Article.prototype.timestamp = function( ) {
@@ -65,13 +91,16 @@ blog.truncateArticles = function() {
     event.preventDefault();
     $(this).children().find('p:not(:first-child)').fadeIn();
     $(this).find('.readButt').hide();
-    console.log("click running");
   });
 };
 
 blog.removeRedundant = function() {
   $('#blogPosts').remove();
 };
+
+
+
+
 
 // blog.handleMainNav = function(){
 //   $('.main-nav').on('click', '.tab', function(e) {
@@ -81,22 +110,16 @@ blog.removeRedundant = function() {
 //   $('.main-nav')
 // }
 
-// $(function(){
-//   //set up blog with the raw data
-//   blog.sortArticles();
-//   blog.importArticles();
-// });
-
 // //load the articles in
 // blog.appendArticles();
 
 // blog.populateFilters();
 
-
-
 $(document).ready(function(){
-  blog.sortArticles();
   blog.createArticles();
+  blog.sortArticlesDate();
+  blog.sortArticlesAuthor();
+  blog.sortArticlesCategory();
   blog.removeRedundant();
   blog.truncateArticles();
 });
