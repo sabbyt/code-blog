@@ -8,10 +8,46 @@ var Article = function(props) {
   this.body = props.body;
 };
 
-blog.sortArticles = function() {
+blog.sortArticlesDate = function() {
   blog.articles.sort(function(a, b) {
-    return b.publishedOn-a.publishedOn;
+    if (a.publishedOn > b.publishedOn) {return -1;}
+    if (a.publishedOn < b.publishedOn) {return 1;}
+    return 0;
   });
+};
+
+blog.sortArticlesAuthor = function() {
+  var blogAuthorAlpha = blog.articles;
+  blogAuthorAlpha.sort(function(a, b) {
+    if (a.author < b.author) {return -1;}
+    if (a.author > b.author) {return 1;}
+    return 0;
+  });
+  for (var i=0; i<blogAuthorAlpha.length; i+=1) {
+    var $authorList = $('#dropdownAuthor').clone();
+    if ($('#dropdownAuthor').find('option[value="'+blogAuthorAlpha[i].author+'"]').length === 0) {
+      $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
+      $authorList.appendTo('#selectAuthor');
+      console.log('author work');
+    }
+  }
+};
+
+blog.sortArticlesCategory = function() {
+  var blogCatAlpha = blog.articles;
+  blogCatAlpha.sort(function(a, b) {
+    if (a.category < b.category) {return -1;}
+    if (a.category > b.category) {return 1;}
+    return 0;
+  });
+  for (var i=0; i<blogCatAlpha.length; i+=1) {
+    var $catList = $('#dropdownCategory').clone();
+    if ($('#dropdownCategory').find('option[value="'+blogCatAlpha[i].category+'"]').length === 0) {
+      $catList.append('<option value="'+blogCatAlpha[i].category+ '">' +blogCatAlpha[i].category+'</option>');
+      $catList.appendTo('#selectCat');
+      console.log('cat work');
+    }
+  }
 };
 
 Article.prototype.timestamp = function( ) {
@@ -41,13 +77,14 @@ Article.prototype.timestamp = function( ) {
 
 Article.prototype.toHTML = function () {
   var $articleCopy = $('#blogPosts').clone();
-  $articleCopy.children('.title').html(this.title);
-  $articleCopy.find('.author').html('By ' + this.author);
-  $articleCopy.children('.authorUrl').attr('href', this.authorUrl);
-  $articleCopy.children('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
-  $articleCopy.children('.category').html('Category: ' + this.category);
-  $articleCopy.children('.body').html(this.body);
+  $articleCopy.find('.title').html(this.title);
+  $articleCopy.find('.author').html(this.author);
+  $articleCopy.find('.authorUrl').attr('href', this.authorUrl);
+  $articleCopy.find('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
+  $articleCopy.find('.category').html('Category: ' + this.category);
+  $articleCopy.find('.parBod').html(this.body);
   $articleCopy.appendTo('main');
+  $articleCopy.removeAttr('id').addClass('blogPosts');
 };
 
 blog.createArticles = function() {
@@ -58,7 +95,61 @@ blog.createArticles = function() {
   }
 };
 
+blog.truncateArticles = function() {
+  $('.parBod p:not(:first-child)').hide();
+  $('article').on('click', function(event){
+    event.preventDefault();
+    $(this).children().find('p:not(:first-child)').fadeIn();
+    $(this).find('.readButt').hide();
+  });
+};
+
+blog.hideRedundant = function() {
+  $('#blogPosts').hide();
+};
+
 $(document).ready(function(){
-  blog.sortArticles();
   blog.createArticles();
+  blog.sortArticlesDate();
+  blog.sortArticlesAuthor();
+  blog.sortArticlesCategory();
+  blog.hideRedundant();
+  blog.truncateArticles();
+});
+
+var blogdata = blog.articles;
+
+//reset filter = select the other dropdown menu and then option:first to select the first empty option and then .attr('selected', 'selected') resets the other menu to this selected empty option
+
+
+$('select').change(function(){
+  var $chosenAuthor = $('select option:selected');
+  var $chosenCat = $('select option:selected');
+  $('article').hide();
+  var specificAuthor = $chosenAuthor.text();
+  var specificCat = $chosenCat.text();
+  for (var i=0; i<blogdata.length; i+=1) {
+    var matchAut = blogdata[i].author.match(specificAuthor);
+    if (matchAut !== null) {
+      var populate = document.getElementById('blogPosts');
+      populate.innerHTML = '<h1>' + blogdata[i].title + '</h1>';
+      populate.innerHTML += '<a href="' + blogdata[i].authorUrl + '"><h5>' + blogdata[i].author + '</h5></a>';
+      populate.innerHTML += '<h6>Category: ' + blogdata[i].category + '</h6>';
+      populate.innerHTML += blogdata[i].body;
+      $('#blogPosts').removeAttr('style');
+      console.log('for loop for author ran');
+    }
+  }
+  for (var j=0; j<blogdata.length; j+=1) {
+    var matchCat = blogdata[j].category.match(specificCat);
+    if (matchCat !== null) {
+      var populate2 = document.getElementById('blogPosts');
+      populate2.innerHTML = '<h1>' + blogdata[j].title + '</h1>';
+      populate2.innerHTML += '<a href="' + blogdata[j].authorUrl + '"><h5>' + blogdata[j].author + '</h5></a>';
+      populate2.innerHTML += '<h6>Category: ' + blogdata[j].category + '</h6>';
+      populate2.innerHTML += blogdata[j].body;
+      $('#blogPosts').removeAttr('style');
+      console.log('for loop for cat ran');
+    }
+  }
 });

@@ -23,17 +23,48 @@ article {
   font-family: Garamond, Baskerville, serif;
 }
 
-img {
+p img {
   min-width: 300px;
-  max-width: 300px;
+  max-width: 300px  ;
   display: block;
   margin: 10px auto;
 }
 
+.center {
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.icon {
+  width:40px;
+  padding-top:5px;
+}
+
+#footer {
+  width: 100%;
+  background-color: #3F7CAC;
+  min-height: 50px;
+  padding-top: 5px;
+}
+
+#footer p {
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-family: Garamond, Baskerville, serif;
+  font-size: 1.25pxem;
+}
+
 #navbar {
   width: auto;
-  background: white;
-  padding: 20px;
+  background: #68C5DB;
+  padding: 5px;
 }
 
 #navbar ul {

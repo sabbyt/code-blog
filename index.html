@@ -12,27 +12,46 @@
     <h1>Sabrina Tee</h1>
     <nav id="navbar">
       <ul>
-        <li class="activePage"><a href="#"><span>HOME</span></a></li>
-        <li><a href="#"><span>ABOUT</span></a></li>
-        <li><a href="#"><span>PORTFOLIO</span></a></li>
-        <li><a href="#"><span>RESUME</span></a></li>
-        <li><a href="#"><span>CONTACT ME</span></a></li>
+        <li class="activePage"><a href="#"><span>HOME</span><br/><img class="icon" src="img/home5.svg"/></a></li>
+        <li><a href="#"><span>ABOUT</span><br/><img class="icon" src="img/smiling36.svg"/></a></li>
+        <li><a href="#"><span>GITHUB</span><br/><img class="icon" src="img/cat6.svg"/></a></li>
+        <li><a href="#"><span>RESUME</span><br/><img class="icon" src="img/linkedin.svg"/></a></li>
+        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="img/wassap.svg"/></a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <div class="center">
+    <section class = "form">
+      <form action="js/articles.js" id="authorFilter">Filter by Author:</form>
+      <select name="authorList" form="authorList" id="selectAuthor">
+        <option id="dropdownAuthor"></option>
+      </select>
+    </section>
+
+    <section class = "form">
+      <form action="js/articles.js" id="catFilter">Filter by Category:</form>
+      <select name="categoryList" form="categoryList" id="selectCat">
+        <option id="dropdownCategory"></option>
+      </select>
+    </section>
+    </div>
+
     <article id="blogPosts">
       <h1 class="title"></h1>
       <a href="" class="authorUrl"><h5 class="author"></h5></a>
       <h5 class="publishedOn"></h5>
       <h6 class="category"></h6>
-      <p class="body"></p>
+      <div class="parBod"></div>
+      <div class="read-more"><a href="#"><button name="button" class="readButt">Read more</button><a></div>
     </article>
   </main>
 
   <footer>
-    <div id="footer"></div>
+    <div id="footer">
+      <p>Copyright 2015 Sabrina Tee</p>
+    </div>
   </footer>
 
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
