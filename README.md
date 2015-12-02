@@ -37,3 +37,5 @@ Assignment for Day 3 of Code Fellows 301:
 * Added hide feature of unpublished articles.
 
 * Added quick show of "about me" information via "About" nav tab.
+
+* Added filter reset.

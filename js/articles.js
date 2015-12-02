@@ -132,41 +132,37 @@ $(document).ready(function(){
 
 var blogdata = blog.articles;
 
-//reset filter = select the other dropdown menu and then option:first to select the first empty option and then .attr('selected', 'selected') resets the other menu to this selected empty option
+$('select').change(function(){
+  var $chosenAuthor = $('select option:selected');
+  var $chosenCat = $('select option:selected');
+  $('select').find('option:selected').removeAttr('selected');
+  console.log('reset werk');
 
-
-// $('select').change(function(){
-//   if('#selectAuthor').change(function(){
-
-//   }attr('selected','selected')
-
-//   var $chosenAuthor = $('select option:selected');
-//   var $chosenCat = $('select option:selected');
-//   $('article').hide();
-//   var specificAuthor = $chosenAuthor.text();
-//   var specificCat = $chosenCat.text();
-//   for (var i=0; i<blogdata.length; i+=1) {
-//     var matchAut = blogdata[i].author.match(specificAuthor);
-//     if (matchAut !== null) {
-//       var populate = document.getElementById('blogPosts');
-//       populate.innerHTML = '<h1>' + blogdata[i].title + '</h1>';
-//       populate.innerHTML += '<a href="' + blogdata[i].authorUrl + '"><h5>' + blogdata[i].author + '</h5></a>';
-//       populate.innerHTML += '<h6>Category: ' + blogdata[i].category + '</h6>';
-//       populate.innerHTML += blogdata[i].body;
-//       $('#blogPosts').removeAttr('style');
-//       console.log('for loop for author ran');
-//     }
-//   }
-//   for (var j=0; j<blogdata.length; j+=1) {
-//     var matchCat = blogdata[j].category.match(specificCat);
-//     if (matchCat !== null) {
-//       var populate2 = document.getElementById('blogPosts');
-//       populate2.innerHTML = '<h1>' + blogdata[j].title + '</h1>';
-//       populate2.innerHTML += '<a href="' + blogdata[j].authorUrl + '"><h5>' + blogdata[j].author + '</h5></a>';
-//       populate2.innerHTML += '<h6>Category: ' + blogdata[j].category + '</h6>';
-//       populate2.innerHTML += blogdata[j].body;
-//       $('#blogPosts').removeAttr('style');
-//       console.log('for loop for cat ran');
-//     }
-//   }
-// });
+  $('article').hide();
+  var specificAuthor = $chosenAuthor.text();
+  var specificCat = $chosenCat.text();
+  for (var i=0; i<blogdata.length; i+=1) {
+    var matchAut = blogdata[i].author.match(specificAuthor);
+    if (matchAut !== null) {
+      var populate = document.getElementById('blogPosts');
+      populate.innerHTML = '<h1>' + blogdata[i].title + '</h1>';
+      populate.innerHTML += '<a href="' + blogdata[i].authorUrl + '"><h5>' + blogdata[i].author + '</h5></a>';
+      populate.innerHTML += '<h6>Category: ' + blogdata[i].category + '</h6>';
+      populate.innerHTML += blogdata[i].body;
+      $('#blogPosts').removeAttr('style');
+      console.log('for loop for author ran');
+    }
+  }
+  for (var j=0; j<blogdata.length; j+=1) {
+    var matchCat = blogdata[j].category.match(specificCat);
+    if (matchCat !== null) {
+      var populate2 = document.getElementById('blogPosts');
+      populate2.innerHTML = '<h1>' + blogdata[j].title + '</h1>';
+      populate2.innerHTML += '<a href="' + blogdata[j].authorUrl + '"><h5>' + blogdata[j].author + '</h5></a>';
+      populate2.innerHTML += '<h6>Category: ' + blogdata[j].category + '</h6>';
+      populate2.innerHTML += blogdata[j].body;
+      $('#blogPosts').removeAttr('style');
+      console.log('for loop for cat ran');
+    }
+  }
+});
