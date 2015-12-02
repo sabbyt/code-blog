@@ -68,7 +68,7 @@ Article.prototype.timestamp = function( ) {
 Article.prototype.toHTML = function () {
   var $articleCopy = $('#blogPosts').clone();
   $articleCopy.find('.title').html(this.title);
-  $articleCopy.find('.author').html('By ' + this.author);
+  $articleCopy.find('.author').html(this.author);
   $articleCopy.find('.authorUrl').attr('href', this.authorUrl);
   $articleCopy.find('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
   $articleCopy.find('.category').html('Category: ' + this.category);
@@ -98,23 +98,6 @@ blog.removeRedundant = function() {
   $('#blogPosts').remove();
 };
 
-
-
-
-
-// blog.handleMainNav = function(){
-//   $('.main-nav').on('click', '.tab', function(e) {
-//     $('.tab-content').hide();
-//     $('#' + $(this).data('content')).fadeIn();
-//   });
-//   $('.main-nav')
-// }
-
-// //load the articles in
-// blog.appendArticles();
-
-// blog.populateFilters();
-
 $(document).ready(function(){
   blog.createArticles();
   blog.sortArticlesDate();
@@ -129,7 +112,6 @@ var specificAuthor;
 var match;
 var blogdata = blog.articles;
 
-
 $('select').change(function(){
   $chosenAuthor = $('select option:selected');
   $('article').hide();
@@ -140,7 +122,11 @@ $('select').change(function(){
       console.log(blogdata[i].author);
       console.log(blogdata[i]);
       var populate = document.getElementById('blogPosts');
-      populate.innerHTML = blogdata[i].author;
+      populate.innerHTML = "<h1>" + blogdata[i].title + "</h1>";
+      populate.innerHTML += "<a href='" + blogdata[i].authorUrl + "'><h5>" + blogdata[i].author + "</h5></a>";
+      populate.innerHTML += "<h6>Category: " + blogdata[i].category + "</h6>";
+      populate.innerHTML += blogdata[i].body;
+
       $('#blogPosts').removeAttr('style');
     }
   }
