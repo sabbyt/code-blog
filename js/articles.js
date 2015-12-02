@@ -28,7 +28,6 @@ blog.sortArticlesAuthor = function() {
     if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].category+'")').length === 0) {
       $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
       $authorList.appendTo('#selectAuthor');
-      console.log('author work');
     }
   }
 };
@@ -45,7 +44,6 @@ blog.sortArticlesCategory = function() {
     if ($('#selectCat').find(':contains("'+blogCatAlpha[i].category+'")').length === 0) {
       $catList.append('<option value="'+blogCatAlpha[i].category+ '">' +blogCatAlpha[i].category+'</option>');
       $catList.appendTo('#selectCat');
-      console.log('cat work');
     }
   }
 };
@@ -90,12 +88,11 @@ Article.prototype.toHTML = function () {
 blog.createArticles = function() {
   for (var i=0; i<blog.rawData.length; i+=1) {
     if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
-      console.log('filter out unpub');
+      console.log('Unpublished draft');
     }else{
       var callObject = new Article(blog.rawData[i]);
       blog.articles.push(callObject);
       callObject.toHTML();
-      console.log('printing to html');
     }
   }
 };
@@ -106,6 +103,16 @@ blog.truncateArticles = function() {
     event.preventDefault();
     $(this).children().find('p:not(:first-child)').fadeIn();
     $(this).find('.readButt').hide();
+  });
+};
+
+blog.showAboutMe = function() {
+  $('#about-click').on('click', function(event){
+    event.preventDefault();
+    $('#about-me').prependTo('main').fadeIn(1000);
+    $('#about-click').click(function(){
+      $('#about-me').hide();
+    });
   });
 };
 
@@ -120,6 +127,7 @@ $(document).ready(function(){
   blog.sortArticlesCategory();
   blog.hideRedundant();
   blog.truncateArticles();
+  blog.showAboutMe();
 });
 
 var blogdata = blog.articles;

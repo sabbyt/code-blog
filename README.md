@@ -33,3 +33,7 @@ Assignment for Day 3 of Code Fellows 301:
 * New user stories derived from assignment prompt.
 
 * Added responsive web design targeting nav bar, filters and images.
+
+* Added hide of unpublished articles.
+
+* Added quick show of about-me via about nav tab.
