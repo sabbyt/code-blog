@@ -61,10 +61,42 @@ blog.createArticles = function() {
 
 blog.truncateArticles = function() {
   $('.parBod p:not(:first-child)').hide();
+  $('article').on('click', function(event){
+    event.preventDefault();
+    $(this).children().find('p:not(:first-child)').fadeIn();
+    $(this).find('.readButt').hide();
+    console.log("click running");
+  });
 };
+
+blog.removeRedundant = function() {
+  $('#blogPosts').remove();
+};
+
+// blog.handleMainNav = function(){
+//   $('.main-nav').on('click', '.tab', function(e) {
+//     $('.tab-content').hide();
+//     $('#' + $(this).data('content')).fadeIn();
+//   });
+//   $('.main-nav')
+// }
+
+// $(function(){
+//   //set up blog with the raw data
+//   blog.sortArticles();
+//   blog.importArticles();
+// });
+
+// //load the articles in
+// blog.appendArticles();
+
+// blog.populateFilters();
+
+
 
 $(document).ready(function(){
   blog.sortArticles();
   blog.createArticles();
+  blog.removeRedundant();
   blog.truncateArticles();
 });

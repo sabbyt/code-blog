@@ -16,13 +16,13 @@ Assignment for Day 1 of Code Fellows 301:
 
 * Used jQuery to dynamically render to DOM.
 
-* Added relative timestamps based on date math adapted from [Stacked Overflow](http://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best)
+* Added relative timestamps based on date math adapted from [Stacked Overflow](http://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best).
 
 Assignment for Day 2 of Code Fellows 301:
 
 * New user stories derived from assignment prompt.
 
-* Truncate articles including adding read-on button feature.
+* Truncated articles including adding read-on button feature.
 
 * Added filters by name and category.
 
