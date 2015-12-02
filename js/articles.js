@@ -25,10 +25,9 @@ blog.sortArticlesAuthor = function() {
   });
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
-    if ($('#dropdownAuthor').find('option[value="'+blogAuthorAlpha[i].author+'"]').length === 0) {
+    if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].category+'")').length === 0) {
       $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
       $authorList.appendTo('#selectAuthor');
-      console.log('author work');
     }
   }
 };
@@ -42,10 +41,9 @@ blog.sortArticlesCategory = function() {
   });
   for (var i=0; i<blogCatAlpha.length; i+=1) {
     var $catList = $('#dropdownCategory').clone();
-    if ($('#dropdownCategory').find('option[value="'+blogCatAlpha[i].category+'"]').length === 0) {
+    if ($('#selectCat').find(':contains("'+blogCatAlpha[i].category+'")').length === 0) {
       $catList.append('<option value="'+blogCatAlpha[i].category+ '">' +blogCatAlpha[i].category+'</option>');
       $catList.appendTo('#selectCat');
-      console.log('cat work');
     }
   }
 };
@@ -89,9 +87,13 @@ Article.prototype.toHTML = function () {
 
 blog.createArticles = function() {
   for (var i=0; i<blog.rawData.length; i+=1) {
-    var callObject = new Article(blog.rawData[i]);
-    blog.articles.push(callObject);
-    callObject.toHTML();
+    if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
+      console.log('Unpublished draft');
+    }else{
+      var callObject = new Article(blog.rawData[i]);
+      blog.articles.push(callObject);
+      callObject.toHTML();
+    }
   }
 };
 
@@ -104,8 +106,48 @@ blog.truncateArticles = function() {
   });
 };
 
+blog.showAboutMe = function() {
+  $('#about-click').on('click', function(event){
+    event.preventDefault();
+    $('#about-me').prependTo('main').fadeIn(1000);
+    $('#about-click').click(function(){
+      $('#about-me').hide();
+    });
+  });
+};
+
 blog.hideRedundant = function() {
   $('#blogPosts').hide();
+};
+
+blog.populateAutFilter = function() {
+  $('#selectAuthor').change(function(){
+    var $theChosenOneJQ = $('select option:selected').text();
+    var theChosenOne = $theChosenOneJQ;
+    $('#selectAuthor').find('option:selected').removeAttr('selected');
+    $('article').hide();
+    for (var i=0; i<blog.rawData.length; i+=1) {
+      var matchAut = blog.rawData[i].author.match(theChosenOne);
+      if (matchAut !== null) {
+        $('article').find('h5:contains("'+theChosenOne+'")').parentsUntil('main').removeAttr('style');
+      }
+    }
+  });
+};
+
+blog.populateCatFilter = function() {
+  $('#selectCat').change(function(){
+    var $chosenCatJQ = $('select option:selected').text();
+    var theChosenCat = $chosenCatJQ;
+    $('#selectCat').find('option:selected').removeAttr('selected');
+    $('article').hide();
+    for (var j=0; j<blog.rawData.length; j+=1) {
+      var matchCat = blog.rawData[j].category.match(theChosenCat);
+      if (matchCat !== null) {
+        $('article').find('h6:contains("'+theChosenCat+'")').parentsUntil('main').removeAttr('style');
+      }
+    }
+  });
 };
 
 $(document).ready(function(){
@@ -115,41 +157,7 @@ $(document).ready(function(){
   blog.sortArticlesCategory();
   blog.hideRedundant();
   blog.truncateArticles();
-});
-
-var blogdata = blog.articles;
-
-//reset filter = select the other dropdown menu and then option:first to select the first empty option and then .attr('selected', 'selected') resets the other menu to this selected empty option
-
-
-$('select').change(function(){
-  var $chosenAuthor = $('select option:selected');
-  var $chosenCat = $('select option:selected');
-  $('article').hide();
-  var specificAuthor = $chosenAuthor.text();
-  var specificCat = $chosenCat.text();
-  for (var i=0; i<blogdata.length; i+=1) {
-    var matchAut = blogdata[i].author.match(specificAuthor);
-    if (matchAut !== null) {
-      var populate = document.getElementById('blogPosts');
-      populate.innerHTML = '<h1>' + blogdata[i].title + '</h1>';
-      populate.innerHTML += '<a href="' + blogdata[i].authorUrl + '"><h5>' + blogdata[i].author + '</h5></a>';
-      populate.innerHTML += '<h6>Category: ' + blogdata[i].category + '</h6>';
-      populate.innerHTML += blogdata[i].body;
-      $('#blogPosts').removeAttr('style');
-      console.log('for loop for author ran');
-    }
-  }
-  for (var j=0; j<blogdata.length; j+=1) {
-    var matchCat = blogdata[j].category.match(specificCat);
-    if (matchCat !== null) {
-      var populate2 = document.getElementById('blogPosts');
-      populate2.innerHTML = '<h1>' + blogdata[j].title + '</h1>';
-      populate2.innerHTML += '<a href="' + blogdata[j].authorUrl + '"><h5>' + blogdata[j].author + '</h5></a>';
-      populate2.innerHTML += '<h6>Category: ' + blogdata[j].category + '</h6>';
-      populate2.innerHTML += blogdata[j].body;
-      $('#blogPosts').removeAttr('style');
-      console.log('for loop for cat ran');
-    }
-  }
+  blog.showAboutMe();
+  blog.populateAutFilter();
+  blog.populateCatFilter();
 });

@@ -1,5 +1,13 @@
 blog.rawData = [
   {
+    title:       'WSL Ipsum',
+    category:    'sports',
+    author:      'World Surf League',
+    authorUrl:   'http://www.worldsurfleague.com',
+    publishedOn: 'DRAFT',
+    body: 'World Surf League ipsum ipsum surf surf',
+  },
+  {
     title:       'Bacon Ipsum',
     category:    'food',
     author:      'Kevin Bacon',
