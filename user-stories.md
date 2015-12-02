@@ -13,3 +13,7 @@ USER STORIES
 9. As a reader, I want articles filterable by category so that I can read things that interest me.
 10. As the creator, I want the About nav to act as a tab, so my story is revealed FAST.
 11. As a reader, I want the blog to use a little color, so that I can distinguish it from other pages.
+
+12. As a reader, I want the primary nav to be responsive, so that I can get around using any device.
+13. As a reader, I want the filters to be responsive, so that I can use them easily from any device.
+14. As a reader, I want the images to be responsive, so that content stays properly proportioned.

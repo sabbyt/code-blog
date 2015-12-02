@@ -27,3 +27,9 @@ Assignment for Day 2 of Code Fellows 301:
 * Added filters by name and category.
 
 * Added more css styling.
+
+Assignment for Day 3 of Code Fellows 301:
+
+* New user stories derived from assignment prompt.
+
+* Added responsive web design targeting nav bar, filters and images.
