@@ -10,33 +10,43 @@ var Article = function(props) {
 
 blog.sortArticlesDate = function() {
   blog.articles.sort(function(a, b) {
-    return b.publishedOn-a.publishedOn;
+    if (a.publishedOn > b.publishedOn) {return -1;}
+    if (a.publishedOn < b.publishedOn) {return 1;}
+    return 0;
   });
 };
 
 blog.sortArticlesAuthor = function() {
   var blogAuthorAlpha = blog.articles;
   blogAuthorAlpha.sort(function(a, b) {
-    return b.author-a.author;
+    if (a.author < b.author) {return -1;}
+    if (a.author > b.author) {return 1;}
+    return 0;
   });
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
-    $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
-    $authorList.appendTo('#selectAuthor');
-    console.log('author work');
+    if ($('#dropdownAuthor').find('option[value="'+blogAuthorAlpha[i].author+'"]').length === 0) {
+      $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
+      $authorList.appendTo('#selectAuthor');
+      console.log('author work');
+    }
   }
 };
 
 blog.sortArticlesCategory = function() {
   var blogCatAlpha = blog.articles;
   blogCatAlpha.sort(function(a, b) {
-    return b.category-a.category;
+    if (a.category < b.category) {return -1;}
+    if (a.category > b.category) {return 1;}
+    return 0;
   });
   for (var i=0; i<blogCatAlpha.length; i+=1) {
     var $catList = $('#dropdownCategory').clone();
-    $catList.append('<option>'+blogCatAlpha[i].category+'</option>');
-    $catList.appendTo('#selectCat');
-    console.log('cat work');
+    if ($('#dropdownCategory').find('option[value="'+blogCatAlpha[i].category+'"]').length === 0) {
+      $catList.append('<option value="'+blogCatAlpha[i].category+ '">' +blogCatAlpha[i].category+'</option>');
+      $catList.appendTo('#selectCat');
+      console.log('cat work');
+    }
   }
 };
 
@@ -108,6 +118,9 @@ $(document).ready(function(){
 });
 
 var blogdata = blog.articles;
+
+//reset filter = select the other dropdown menu and then option:first to select the first empty option and then .attr('selected', 'selected') resets the other menu to this selected empty option
+
 
 $('select').change(function(){
   var $chosenAuthor = $('select option:selected');
