@@ -21,7 +21,7 @@ blog.sortArticlesAuthor = function() {
   });
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
-    $authorList.append("<option>"+blogAuthorAlpha[i].author+"</option>");
+    $authorList.append("<option value='"+blogAuthorAlpha[i].author+ "'>" +blogAuthorAlpha[i].author+"</option>");
     $authorList.appendTo('#selectAuthor');
     console.log('author work');
   }
@@ -35,7 +35,7 @@ blog.sortArticlesCategory = function() {
   for (var i=0; i<blogCatAlpha.length; i+=1) {
     var $catList = $('#dropdownCategory').clone();
     $catList.append("<option>"+blogCatAlpha[i].category+"</option>");
-    $catList.appendTo('select');
+    $catList.appendTo('#selectCat');
     console.log('cat work');
   }
 };
@@ -120,6 +120,29 @@ $(document).ready(function(){
   blog.sortArticlesDate();
   blog.sortArticlesAuthor();
   blog.sortArticlesCategory();
-  blog.removeRedundant();
+  // blog.removeRedundant();
   blog.truncateArticles();
+});
+
+var $chosenAuthor;
+var specificAuthor;
+var match;
+var blogdata = blog.articles;
+
+
+$('select').change(function(){
+  $chosenAuthor = $('select option:selected');
+  $('article').hide();
+  specificAuthor = $chosenAuthor.text();
+  for (var i=0; i<blogdata.length; i+=1) {
+    match = blogdata[i].author.match(specificAuthor);
+    if (match !== null) {
+      console.log(blogdata[i].author);
+      console.log(blogdata[i]);
+      var populate = document.getElementById('blogPosts');
+      populate.innerHTML = blogdata[i].author;
+      $('#blogPosts').removeAttr('style');
+    }
+  }
+  console.log('run');
 });
