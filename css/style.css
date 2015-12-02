@@ -30,6 +30,17 @@ img {
   margin: 10px auto;
 }
 
+.center {
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
 #navbar {
   width: auto;
   background: white;
