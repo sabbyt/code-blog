@@ -94,8 +94,8 @@ blog.truncateArticles = function() {
   });
 };
 
-blog.removeRedundant = function() {
-  $('#blogPosts').remove();
+blog.hideRedundant = function() {
+  $('#blogPosts').hide();
 };
 
 $(document).ready(function(){
@@ -103,32 +103,40 @@ $(document).ready(function(){
   blog.sortArticlesDate();
   blog.sortArticlesAuthor();
   blog.sortArticlesCategory();
-  // blog.removeRedundant();
+  blog.hideRedundant();
   blog.truncateArticles();
 });
 
-var $chosenAuthor;
-var specificAuthor;
-var match;
 var blogdata = blog.articles;
 
 $('select').change(function(){
-  $chosenAuthor = $('select option:selected');
+  var $chosenAuthor = $('select option:selected');
+  var $chosenCat = $('select option:selected');
   $('article').hide();
-  specificAuthor = $chosenAuthor.text();
+  var specificAuthor = $chosenAuthor.text();
+  var specificCat = $chosenCat.text();
   for (var i=0; i<blogdata.length; i+=1) {
-    match = blogdata[i].author.match(specificAuthor);
-    if (match !== null) {
-      console.log(blogdata[i].author);
-      console.log(blogdata[i]);
+    var matchAut = blogdata[i].author.match(specificAuthor);
+    if (matchAut !== null) {
       var populate = document.getElementById('blogPosts');
       populate.innerHTML = '<h1>' + blogdata[i].title + '</h1>';
       populate.innerHTML += '<a href="' + blogdata[i].authorUrl + '"><h5>' + blogdata[i].author + '</h5></a>';
       populate.innerHTML += '<h6>Category: ' + blogdata[i].category + '</h6>';
       populate.innerHTML += blogdata[i].body;
-
       $('#blogPosts').removeAttr('style');
+      console.log('for loop for author ran');
     }
   }
-  console.log('run');
+  for (var j=0; j<blogdata.length; j+=1) {
+    var matchCat = blogdata[j].category.match(specificCat);
+    if (matchCat !== null) {
+      var populate2 = document.getElementById('blogPosts');
+      populate2.innerHTML = '<h1>' + blogdata[j].title + '</h1>';
+      populate2.innerHTML += '<a href="' + blogdata[j].authorUrl + '"><h5>' + blogdata[j].author + '</h5></a>';
+      populate2.innerHTML += '<h6>Category: ' + blogdata[j].category + '</h6>';
+      populate2.innerHTML += blogdata[j].body;
+      $('#blogPosts').removeAttr('style');
+      console.log('for loop for cat ran');
+    }
+  }
 });
