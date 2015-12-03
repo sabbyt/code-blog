@@ -11,21 +11,22 @@ header, body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, {
 }
 
 header h1 {
-  margin-top: 50px;
   text-align: center;
   font-family: Garamond, Baskerville, serif;
-  font-size: 70px;
+  font-size: 5em;
 }
 
 article {
-  margin-left: 100px;
-  margin-right: 100px;
   font-family: Garamond, Baskerville, serif;
 }
 
+article p {
+  font-size: 1.2em;
+}
+
 p img {
-  min-width: 300px;
-  max-width: 300px  ;
+  min-width: 20%;
+  max-width: 100%;
   display: block;
   margin: 10px auto;
 }
@@ -36,14 +37,14 @@ p img {
 
 .form {
   display: inline-block;
-  padding: 10px;
+  padding: 1em;
   font-weight: bold;
   text-align: center;
 }
 
 .icon {
-  width:40px;
-  padding-top:5px;
+  width:1.5em;
+  padding-top:0.5em;
 }
 
 #about-me {
@@ -51,28 +52,27 @@ p img {
   text-align:center;
   background-color: #3F7CAC;
   color: #FFFFFF;
-  padding:10px;
+  padding:1em;
 }
 
 #footer {
   width: 100%;
   background-color: #3F7CAC;
-  min-height: 50px;
-  padding-top: 5px;
+  min-height: 2em;
+  padding-top: 0.5em;
 }
 
 #footer p {
   text-align: center;
   color: white;
-  padding: 10px;
+  padding: 1em;
   font-family: Garamond, Baskerville, serif;
-  font-size: 1.25pxem;
+  font-size: 1.25em;
 }
 
 #navbar {
-  width: auto;
   background: #68C5DB;
-  padding: 5px;
+  padding: 1em;
 }
 
 #navbar ul {
@@ -95,11 +95,30 @@ p img {
   color: #000000;
   text-decoration: none;
   display: block;
-  padding: 15px 25px;
+  padding: 1.2em 1.2em;
   font-family: Garamond, Baskerville, serif;
-  font-weight: 700;
+  font-weight: bold;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 1.3em;
   letter-spacing: 0.1em;
   position: relative;
+}
+
+@media screen and (max-device-width:768px) {
+  header h1 {
+    font-size: 4em;
+  }
+  #navbar {
+    width:70%;
+  }
+
+  #navbar ul li a {
+    content: ' ';
+    color: transparent;
+    font-weight: normal;
+    letter-spacing: -0.5em;
+    padding: 0;
+    margin: 0;
+    margin-top: -1em;
+  }
 }
