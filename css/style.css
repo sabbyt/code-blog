@@ -122,3 +122,23 @@ p img {
     margin-top: -1em;
   }
 }
+
+@media screen and (max-width:712px) {
+  header h1 {
+    font-size: 4em;
+  }
+  #navbar {
+    width:70%;
+  }
+
+  #navbar ul li a {
+    content: ' ';
+    color: transparent;
+    font-weight: normal;
+    letter-spacing: -0.5em;
+    padding: 0;
+    margin: 0;
+    margin-top: -1em;
+  }
+}
+

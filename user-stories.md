@@ -17,3 +17,6 @@ USER STORIES
 12. As a reader, I want the primary nav to be responsive, so that I can get around using any device.
 13. As a reader, I want the filters to be responsive, so that I can use them easily from any device.
 14. As a reader, I want the images to be responsive, so that content stays properly proportioned.
+
+15. As a developer, I want to declare templates for articles, so that I can build new articles more easily.
+16. As a developer, I want to follow SMACSS organization, so that I know where to look for creating and editing styles.
