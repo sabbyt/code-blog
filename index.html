@@ -6,6 +6,25 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/skeleton.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="js/handlebars-v4.0.5.js"></script>
+  <script id="article-template" type="text/x-handlebars-template">
+
+  {{#each articleList}}
+  <article class="container blogPosts">
+    <h1>{{this.title}}</h1>
+    <a href={{{this.authorUrl}}}>
+      <h5>{{{this.author}}}</h5>
+    </a>
+    <h5>Published on {{this.date}}</h5>
+    <h6>Category: {{this.category}}</h6>
+    <div class="parBod">{{{this.body}}}</div>
+    <div class="read-more"><a href="#"><button name="button" class="readButt button-primary">Read more</button></a>
+    </div>
+  </article>
+  {{/each}}
+
+  </script>
 </head>
 
 <body>
@@ -39,6 +58,10 @@
       </section>
     </div>
 
+    <article>
+      <div class="newContent-placeholder"></div>
+    </article>
+
     <article class="container" id="blogPosts">
       <h1 class="title"></h1>
       <a href="" class="authorUrl"><h5 class="author"></h5></a>
@@ -64,6 +87,7 @@
   <script type="text/javascript" src="js/blog.js"></script>
   <script type="text/javascript" src="js/blogArticles.js"></script>
   <script type="text/javascript" src="js/articles.js"></script>
+  <script type="text/javascript" src="js/articleTemplate.js"></script>
 </body>
 
 </html>

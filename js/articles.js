@@ -92,7 +92,7 @@ blog.createArticles = function() {
     }else{
       var callObject = new Article(blog.rawData[i]);
       blog.articles.push(callObject);
-      callObject.toHTML();
+      // callObject.toHTML();
     }
   }
 };
