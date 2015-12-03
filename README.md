@@ -34,8 +34,11 @@ Assignment for Day 3 of Code Fellows 301:
 
 * Added responsive web design; targeting nav bar, filters and images.
 
+* Added breakpoint for screens below 768px that collapses nav bar into icons.
+
 * Added hide feature of unpublished articles.
 
 * Added quick show of "about me" information via "About" nav tab.
 
 * Added filter reset.
+
