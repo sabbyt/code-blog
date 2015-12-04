@@ -6,7 +6,7 @@ Assignment for Day 1 of Code Fellows 301:
 
 * Collaborated with Pat Yau and help from Nat Chow and TA Brian Ray.
 
-* Utilises normalize.css, skeleton.css and jQuery.
+* Utilises handlebar.js, normalize.css, skeleton.css and jQuery.
 
 * Built HTML basic structure in index.html including nav bar, added basic css including css reset, added skeleton.css and normalize.css for cross-browser functionality.
 
@@ -43,4 +43,10 @@ Assignment for Day 3 of Code Fellows 301:
 * Added quick show of "about me" information via "About" nav tab.
 
 * Added filter reset.
+
+Assignment for Day 4 of Code Fellows 301:
+
+* Added handlebar.js to template new articles.
+
+* Organised CSS into SMACSS.
 

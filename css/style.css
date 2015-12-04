@@ -1,3 +1,4 @@
+/*BASE SMACSS*/
 header, body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, {
     margin: 0;
     padding: 0;
@@ -31,6 +32,7 @@ p img {
   margin: 10px auto;
 }
 
+/*LAYOUT RULES*/
 .center {
   text-align: center;
 }
@@ -47,6 +49,7 @@ p img {
   padding-top:0.5em;
 }
 
+/*MODULES - ABOUT ME*/
 #about-me {
   display:none;
   text-align:center;
@@ -55,6 +58,7 @@ p img {
   padding:1em;
 }
 
+/*MODULES - FOOTER*/
 #footer {
   width: 100%;
   background-color: #3F7CAC;
@@ -70,6 +74,7 @@ p img {
   font-size: 1.25em;
 }
 
+/*MODULES - NAV BAR*/
 #navbar {
   background: #68C5DB;
   padding: 1em;
@@ -104,6 +109,7 @@ p img {
   position: relative;
 }
 
+/*STATE RULES*/
 @media screen and (max-device-width:768px) {
   header h1 {
     font-size: 4em;
@@ -141,4 +147,3 @@ p img {
     margin-top: -1em;
   }
 }
-
