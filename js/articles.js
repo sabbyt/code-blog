@@ -25,74 +25,22 @@ Article.prototype.timestamp = function( ) {
   }else if (elapsed < msPerDay ) {
     return Math.round(elapsed/msPerHour) + ' hours ago';
   }else if (elapsed < msPerMonth) {
-    return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';
+    if (Math.round(elapsed/msPerDay) === 1) {
+      return 'approximately ' + Math.round(elapsed/msPerDay) + ' day ago';
+    }else {
+      return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';
+    }
   }else if (elapsed < msPerYear) {
-    return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+    if (Math.round(elapsed/msPerMonth) === 1) {
+      return 'approximately ' + Math.round(elapsed/msPerMonth) + ' month ago';
+    }else {
+      return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+    }
   }else {
-    return 'approximately ' + Math.round(elapsed/msPerYear) + ' years ago';
-  }
-};
-
-blog.createArticles = function() {
-  for (var i=0; i<blog.rawData.length; i+=1) {
-    if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
-      console.log('Unpublished draft');
-    }else{
-      var callObject = new Article(blog.rawData[i]);
-      blog.articles.push(callObject);
+    if (Math.round(elapsed/msPerYear) === 1) {
+      return 'approximately ' + Math.round(elapsed/msPerYear) + ' year ago';
+    }else {
+      return 'approximately ' + Math.round(elapsed/msPerYear) + ' years ago';
     }
   }
-};
-
-blog.truncateArticles = function() {
-  $('.parBod p:not(:first-child)').hide();
-  $('.readButt').on('click', function(event) {
-    event.preventDefault();
-    $(this).parent().siblings('.parBod').find('p').removeAttr('style');
-    $(this).hide();
-  });
-};
-
-blog.showAboutMe = function() {
-  $('#about-click').on('click', function(event){
-    event.preventDefault();
-    $('#about-me').prependTo('main').fadeIn(1000);
-    $('#about-click').click(function(){
-      $('#about-me').hide();
-    });
-  });
-};
-
-blog.hideRedundant = function() {
-  $('#blogPosts').hide();
-};
-
-blog.populateAutFilter = function() {
-  $('#selectAuthor').change(function(){
-    var $theChosenOneJQ = $('select option:selected').text();
-    var theChosenOne = $theChosenOneJQ;
-    $('#selectAuthor').find('option:selected').removeAttr('selected');
-    $('article').hide();
-    for (var i=0; i<blog.rawData.length; i+=1) {
-      var matchAut = blog.rawData[i].author.match(theChosenOne);
-      if (matchAut !== null) {
-        $('article').find('h5:contains("'+theChosenOne+'")').parentsUntil('main').removeAttr('style');
-      }
-    }
-  });
-};
-
-blog.populateCatFilter = function() {
-  $('#selectCat').change(function(){
-    var $chosenCatJQ = $('select option:selected').text();
-    var theChosenCat = $chosenCatJQ;
-    $('#selectCat').find('option:selected').removeAttr('selected');
-    $('article').hide();
-    for (var j=0; j<blog.rawData.length; j+=1) {
-      var matchCat = blog.rawData[j].category.match(theChosenCat);
-      if (matchCat !== null) {
-        $('article').find('h6:contains("'+theChosenCat+'")').parentsUntil('main').removeAttr('style');
-      }
-    }
-  });
 };

@@ -41,3 +41,37 @@ blog.sortArticlesCategory = function() {
     }
   }
 };
+
+blog.createArticles = function() {
+  for (var i=0; i<blog.rawData.length; i+=1) {
+    if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
+      console.log('Unpublished draft');
+    }else{
+      var callObject = new Article(blog.rawData[i]);
+      blog.articles.push(callObject);
+    }
+  }
+};
+
+blog.truncateArticles = function() {
+  $('.parBod p:not(:first-child)').hide();
+  $('.readButt').on('click', function(event) {
+    event.preventDefault();
+    $(this).parent().siblings('.parBod').find('p').removeAttr('style');
+    $(this).hide();
+  });
+};
+
+blog.showAboutMe = function() {
+  $('#about-click').on('click', function(event){
+    event.preventDefault();
+    $('#about-me').prependTo('main').fadeIn(1000);
+    $('#about-click').click(function(){
+      $('#about-me').hide();
+    });
+  });
+};
+
+blog.hideRedundant = function() {
+  $('#blogPosts').hide();
+};

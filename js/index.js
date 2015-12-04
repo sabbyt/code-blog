@@ -1,5 +1,6 @@
 $(document).ready(function(){
   blog.createArticles();
+  console.log('1');
   blog.sortArticlesAuthor();
   blog.sortArticlesCategory();
   blog.hideRedundant();
@@ -11,5 +12,3 @@ $(document).ready(function(){
   articleTemplateRun();
   blog.truncateArticles();
 });
-
-

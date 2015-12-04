@@ -13,9 +13,9 @@
   {{#each articleList}}
   <article class="container blogPosts">
     <h1>{{this.title}}</h1>
-    <a href={{{this.authorUrl}}}>
-      <h5>{{{this.author}}}</h5>
-    </a>
+    <h5><a href={{{this.authorUrl}}}>
+      {{{this.author}}}
+    </a></h5>
     <h5>Published on {{this.date}}, {{this.timestamp}}</h5>
     <h6>Category: {{this.category}}</h6>
     <div class="parBod">{{{this.body}}}</div>
@@ -75,6 +75,7 @@
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="js/blog.js"></script>
+  <script type="text/javascript" src="js/filters.js"></script>
   <script type="text/javascript" src="js/blogArticles.js"></script>
   <script type="text/javascript" src="js/articles.js"></script>
   <script type="text/javascript" src="js/articleTemplate.js"></script>
