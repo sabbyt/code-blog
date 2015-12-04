@@ -48,7 +48,6 @@ blog.truncateArticles = function() {
   $('.parBod p:not(:first-child)').hide();
   $('.readButt').on('click', function(event) {
     event.preventDefault();
-    console.log('it works');
     $(this).parent().siblings('.parBod').find('p').removeAttr('style');
     $(this).hide();
   });

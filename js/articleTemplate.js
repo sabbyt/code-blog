@@ -7,5 +7,4 @@ var articleTemplateRun = function () {
   var theTemplate = Handlebars.compile(theTemplateScript);
   var theCompiledTemplate = theTemplate(content);
   $('.newArticle-placeholder').html(theCompiledTemplate);
-  console.log('article temp run');
 };

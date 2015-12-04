@@ -4,7 +4,6 @@ blog.articles = [];
 
 blog.sortArticlesDate = function() {
   blog.articles.sort(function(a, b) {
-    console.log('sortArticles');
     if (a.publishedOn > b.publishedOn) {return -1;}
     if (a.publishedOn < b.publishedOn) {return 1;}
     return 0;
