@@ -33,18 +33,6 @@ Article.prototype.timestamp = function( ) {
   }
 };
 
-Article.prototype.toHTML = function () {
-  var $articleCopy = $('#blogPosts').clone();
-  $articleCopy.find('.title').html(this.title);
-  $articleCopy.find('.author').html(this.author);
-  $articleCopy.find('.authorUrl').attr('href', this.authorUrl);
-  $articleCopy.find('.publishedOn').html('Published on ' + this.date + ', ' + this.timestamp());
-  $articleCopy.find('.category').html('Category: ' + this.category);
-  $articleCopy.find('.parBod').html(this.body);
-  $articleCopy.appendTo('main');
-  $articleCopy.removeAttr('id').addClass('blogPosts');
-};
-
 blog.createArticles = function() {
   for (var i=0; i<blog.rawData.length; i+=1) {
     if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
@@ -52,7 +40,6 @@ blog.createArticles = function() {
     }else{
       var callObject = new Article(blog.rawData[i]);
       blog.articles.push(callObject);
-      // callObject.toHTML();
     }
   }
 };
@@ -109,18 +96,3 @@ blog.populateCatFilter = function() {
     }
   });
 };
-
-$(document).ready(function(){
-  blog.sortArticlesDate();
-  blog.sortArticlesAuthor();
-  blog.sortArticlesCategory();
-  blog.createArticles();
-  blog.sortArticlesDate();
-  blog.sortArticlesAuthor();
-  blog.sortArticlesCategory();
-  blog.hideRedundant();
-  blog.truncateArticles();
-  blog.showAboutMe();
-  blog.populateAutFilter();
-  blog.populateCatFilter();
-});
