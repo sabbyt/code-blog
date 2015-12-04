@@ -17,7 +17,10 @@ $(document).ready(function(){
     console.log('9');
   blog.sortArticlesDate();
     console.log('2');
-  $articleTemplateRun();
+  articleTemplateRun();
+    console.log('10');
+  blog.truncateArticles();
+    console.log('6');
 });
 
 
