@@ -46,10 +46,14 @@ blog.createArticles = function() {
 
 blog.truncateArticles = function() {
   $('.parBod p:not(:first-child)').hide();
-  $('article').on('click', function(event){
+  // $('article').on('click', function(event){
+  //   event.preventDefault();
+  //   $(this).children().find('p:not(:first-child)').fadeIn();
+  //   $(this).find('.readButt').hide();
+  // });
+  $('.readButt').on('click', function(event) {
     event.preventDefault();
-    $(this).children().find('p:not(:first-child)').fadeIn();
-    $(this).find('.readButt').hide();
+    console.log('it works');
   });
 };
 

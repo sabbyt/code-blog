@@ -18,6 +18,6 @@ $(document).ready(function(){
   blog.sortArticlesDate();
     console.log('2');
   $articleTemplateRun();
-}());
+});
 
 
