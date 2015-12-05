@@ -20,6 +20,7 @@ blog.sortArticlesAuthor = function() {
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
     if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].category+'")').length === 0) {
+      $authorList.removeAttr('id').addClass('dropdownAuthor');
       $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
       $authorList.appendTo('#selectAuthor');
     }
@@ -36,6 +37,7 @@ blog.sortArticlesCategory = function() {
   for (var i=0; i<blogCatAlpha.length; i+=1) {
     var $catList = $('#dropdownCategory').clone();
     if ($('#selectCat').find(':contains("'+blogCatAlpha[i].category+'")').length === 0) {
+      $catList.removeAttr('id').addClass('dropdownCategory');
       $catList.append('<option value="'+blogCatAlpha[i].category+ '">' +blogCatAlpha[i].category+'</option>');
       $catList.appendTo('#selectCat');
     }
