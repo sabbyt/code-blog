@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sabrina's Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="vendor/highlight.js/styles/default.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/skeleton.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js"></script>
+  <script src="vendor/highlight.js/lib/highlight.js"></script>
+  <!-- <script>hljs.initHighlightingOnLoad();</script> -->
+
+</head>
+
+<body>
+  <header>
+    <h1>Sabrina Tee</h1>
+    <nav id="navbar" class="container">
+      <ul>
+        <li class="activePage"><a href="#"><span>HOME</span><br/><img class="icon" src="img/home5.svg"/></a></li>
+        <li><a href="#" id="about-click"><span>ABOUT</span><br/><img class="icon" src="img/smiling36.svg"/></a></li>
+        <li><a href="https://github.com/sabbyt" target="_blank"><span>GITHUB</span><br/><img class="icon" src="img/cat6.svg"/></a></li>
+        <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="img/linkedin.svg"/></a></li>
+        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="img/wassap.svg"/></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="write" class="tab-content">
+      <h1>New Article</h1>
+      <form>
+        <label>
+          <input type="text" id="article-title" placeholder="Article Title" required>
+        </label>
+        <textarea id="article-body" rows="8" cols="40" required></textarea>
+        <label>
+          <input type="text" id="article-author" placeholder="Author Name" required>
+        </label>
+        <label>
+          <input type="text" id="article-author-url" placeholder="Author's URL" required>
+        </label>
+        <label>
+          <input type="text" id="article-category" placeholder="Category" required>
+        </label>
+        <label>
+          <input type="checkbox" id="article-published"> Published
+        </label>
+      </form>
+    </section>
+
+    <section id="articles" class="tab-content">
+    </section>
+
+    <section id="article-export" class="active">
+      <label id="export-field" for="article-json">
+        <input type="text" readonly id="article-json">
+      </label>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div id="footer">
+      <p>Copyright 2015 Sabrina Tee</p>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="js/newArticle.js"></script>
+</body>
+
+</html>
