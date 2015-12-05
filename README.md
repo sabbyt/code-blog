@@ -50,3 +50,16 @@ Assignment for Day 4 of Code Fellows 301:
 
 * Organised CSS into SMACSS.
 
+Assignment for Day 5 of Code Fellows 301:
+
+* Pair-programming partner: Seth Moore.
+
+* Added new.html for creating blog posts.
+
+* Form fields added and ability to write in Markdown.
+
+* Live preview enabled.
+
+* Added syntax highlighting.
+
+* Export of newly created blog post in JSON.

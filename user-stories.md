@@ -20,3 +20,10 @@ USER STORIES
 
 15. As a developer, I want to declare templates for articles, so that I can build new articles more easily.
 16. As a developer, I want to follow SMACSS organization, so that I know where to look for creating and editing styles.
+
+17. As an author, I want a secret URL where I can go write articles, so that blog visitors don't think they can create posts.
+18. As an author, I want a form fields for all the article properties, so that I can customize each aspect of my article.
+19. As an author, I want to write in Markdown, so that I can easily control formatting.
+20. As an author, I want a live preview of how my post looks, so that I know if I screw up the markdown.
+21. As an author, I want code samples to have syntax highlighting, so that my readers see code as it should appear.
+22. As an author, I want an export of the final article, so that I can paste it into blogArticles.js to publish it.
