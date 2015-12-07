@@ -10,6 +10,23 @@
   <link rel="stylesheet" type="text/css" href="css/layout.css">
   <link rel="stylesheet" type="text/css" href="css/module.css">
   <link rel="stylesheet" type="text/css" href="css/state.css">
+
+  <script src="vendor/handlebars-v4.0.5.js"></script>
+  <script id="article-template" type="text/x-handlebars-template">
+    {{#each articleList}}
+    <article class="container blogPosts">
+      <h1>{{this.title}}</h1>
+      <h5><a href={{{this.authorUrl}}}>
+        {{{this.author}}}</h5>
+      </a></h5>
+      <h5>Published on {{this.date}}, {{this.timestamp}}</h5>
+      <h6>Category: {{this.category}}</h6>
+      <div class="parBod">{{{this.body}}}</div>
+      <div class="read-more"><button name="button" class="readButt button-primary">Read more</button>
+      </div>
+    </article>
+    {{/each}}
+  </script>
 </head>
 
 <body>
@@ -51,7 +68,7 @@
 
     <section id="articlesPreview" class="tab-content container">
     </section>
-    <div class="genJSON container"><button name="button" class="button-primary genJSON">Create!</button></div>
+    <div class="genJSON container"><button name="button" class="button-primary genJSON">Create JSON!</button></div>
 
     <section id="article-export" class="container">
       <label id="export-field" for="article-json">
