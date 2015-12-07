@@ -1,0 +1,67 @@
+/*MODULES - ABOUT ME*/
+#about-me {
+  display:none;
+  text-align:center;
+  background-color: #3F7CAC;
+  color: #FFFFFF;
+  padding:1em;
+  border-radius: 25px;
+}
+
+/*MODULES - FOOTER*/
+#footer {
+  width: 100%;
+  background-color: #3F7CAC;
+  min-height: 2em;
+  padding-top: 0.5em;
+  border-radius: 25px;
+}
+
+#footer p {
+  text-align: center;
+  color: white;
+  padding: 1em;
+  font-family: Garamond, Baskerville, serif;
+  font-size: 1.25em;
+}
+
+/*MODULES - NAV BAR*/
+#navbar {
+  background: #68C5DB;
+  padding: 1em;
+  border-radius: 25px;
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+  display: block;
+  zoom: 1;
+  text-align: center;
+}
+
+#navbar ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+#navbar ul li a {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  padding: 1.2em 1.2em;
+  font-family: Garamond, Baskerville, serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+/*MODULES - NEW BAR*/
+#write {
+  padding-top: 1.2em;
+}

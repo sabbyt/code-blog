@@ -69,7 +69,7 @@ blog.showAboutMe = function() {
     event.preventDefault();
     $('#about-me').prependTo('main').fadeIn(1000);
     $('#about-click').click(function(){
-      $('#about-me').hide();
+      $('#about-me').hide().reset();
     });
   });
 };

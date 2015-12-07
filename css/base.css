@@ -1,0 +1,35 @@
+/*BASE SMACSS*/
+header, body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: Garamond;
+}
+
+header h1 {
+  text-align: center;
+  font-family: Garamond, Baskerville, serif;
+  font-size: 5em;
+}
+
+article {
+  font-family: Garamond, Baskerville, serif;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+article p {
+  font-size: 1.2em;
+}
+
+p img {
+  min-width: 20%;
+  max-width: 100%;
+  display: block;
+  margin: 10px auto;
+}

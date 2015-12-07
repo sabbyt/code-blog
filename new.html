@@ -3,14 +3,13 @@
 <head>
   <title>Sabrina's Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="vendor/highlight.js/styles/default.css">
-  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/skeleton.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js"></script>
-  <script src="vendor/highlight.js/lib/highlight.js"></script>
-  <!-- <script>hljs.initHighlightingOnLoad();</script> -->
-
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="css/base.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <link rel="stylesheet" type="text/css" href="css/module.css">
+  <link rel="stylesheet" type="text/css" href="css/state.css">
 </head>
 
 <body>
@@ -28,13 +27,12 @@
   </header>
 
   <main>
-    <section id="write" class="tab-content">
+    <section id="write" class="tab-content container">
       <h1>New Article</h1>
       <form>
         <label>
           <input type="text" id="article-title" placeholder="Article Title" required>
         </label>
-        <textarea id="article-body" rows="8" cols="40" required></textarea>
         <label>
           <input type="text" id="article-author" placeholder="Author Name" required>
         </label>
@@ -44,16 +42,18 @@
         <label>
           <input type="text" id="article-category" placeholder="Category" required>
         </label>
+        <textarea id="article-body" rows="40" cols="80" placeholder="Article Body"required></textarea>
         <label>
-          <input type="checkbox" id="article-published"> Published
+          <input type="checkbox" id="article-published"> Publish?
         </label>
       </form>
     </section>
 
-    <section id="articles" class="tab-content">
+    <section id="articlesPreview" class="tab-content container">
     </section>
+    <div class="genJSON container"><button name="button" class="button-primary genJSON">Create!</button></div>
 
-    <section id="article-export" class="active">
+    <section id="article-export" class="container">
       <label id="export-field" for="article-json">
         <input type="text" readonly id="article-json">
       </label>
@@ -67,6 +67,9 @@
   </footer>
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+  <script src="js/articles.js"></script>
   <script src="js/newArticle.js"></script>
 </body>
 
