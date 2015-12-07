@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/skeleton.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/base.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <link rel="stylesheet" type="text/css" href="css/module.css">
+  <link rel="stylesheet" type="text/css" href="css/state.css">
 
-  <script src="js/handlebars-v4.0.5.js"></script>
+  <script src="vendor/handlebars-v4.0.5.js"></script>
   <script id="article-template" type="text/x-handlebars-template">
 
   {{#each articleList}}
@@ -37,26 +40,26 @@
         <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="img/linkedin.svg"/></a></li>
         <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="img/wassap.svg"/></a></li>
       </ul>
+
+      <div class="container center">
+        <section class = "form">
+          <form action="js/articles.js" id="authorFilter">Filter by Author:</form>
+          <select name="authorList" form="authorList" id="selectAuthor">
+            <option id="dropdownAuthor"></option>
+          </select>
+        </section>
+
+        <section class = "form">
+          <form action="js/articles.js" id="catFilter">Filter by Category:</form>
+          <select name="categoryList" form="categoryList" id="selectCat">
+            <option id="dropdownCategory"></option>
+          </select>
+        </section>
+      </div>
     </nav>
   </header>
 
   <main>
-    <div class="container center">
-      <section class = "form">
-        <form action="js/articles.js" id="authorFilter">Filter by Author:</form>
-        <select name="authorList" form="authorList" id="selectAuthor">
-          <option id="dropdownAuthor"></option>
-        </select>
-      </section>
-
-      <section class = "form">
-        <form action="js/articles.js" id="catFilter">Filter by Category:</form>
-        <select name="categoryList" form="categoryList" id="selectCat">
-          <option id="dropdownCategory"></option>
-        </select>
-      </section>
-    </div>
-
     <article>
       <div class="newArticle-placeholder"></div>
     </article>

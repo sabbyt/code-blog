@@ -1,8 +1,9 @@
 blog.populateAutFilter = function() {
   $('#selectAuthor').change(function(){
+    $('#selectCat').children().removeAttr('selected');
     var $theChosenOneJQ = $('select option:selected').text();
     var theChosenOne = $theChosenOneJQ;
-    $('#selectAuthor').find('option:selected').removeAttr('selected');
+    $('#selectAuthor').find('option:selected');
     $('article').hide();
     for (var i=0; i<blog.rawData.length; i+=1) {
       var matchAut = blog.rawData[i].author.match(theChosenOne);
@@ -15,9 +16,10 @@ blog.populateAutFilter = function() {
 
 blog.populateCatFilter = function() {
   $('#selectCat').change(function(){
+    $('#selectAuthor').children().removeAttr('selected');
     var $chosenCatJQ = $('select option:selected').text();
     var theChosenCat = $chosenCatJQ;
-    $('#selectCat').find('option:selected').removeAttr('selected');
+    $('#selectCat').find('option:selected');
     $('article').hide();
     for (var j=0; j<blog.rawData.length; j+=1) {
       var matchCat = blog.rawData[j].category.match(theChosenCat);
