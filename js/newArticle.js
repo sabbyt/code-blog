@@ -1,6 +1,10 @@
 var makeNewArticle = {};
 var genJSON;
 var articlePreview = {};
+var cheese = {};
+var theTemplateScript;
+var theTemplate;
+var theCompiledTemplate;
 
 $('#write').on('keyup', function(){
   articlePreview.title = $('#article-title').val();
@@ -10,12 +14,12 @@ $('#write').on('keyup', function(){
   articlePreview.category = $('#article-category').val();
   articlePreview.body = marked('<pre><code>'+$('#article-body').val() + '</code></pre>');
 
-  var temp = new Article(articlePreview);
+  cheese.articleList = new Article(articlePreview);
 
   var articleTemplateRun = function () {
-    var theTemplateScript = $('#article-template').html();
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledTemplate = theTemplate(temp);
+    theTemplateScript = $('#article-template').html();
+    theTemplate = Handlebars.compile(theTemplateScript);
+    theCompiledTemplate = theTemplate(cheese);
     console.log('lalala'+theCompiledTemplate);
     $('#articlesPreview').html(theCompiledTemplate);
   };
