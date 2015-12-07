@@ -27,9 +27,18 @@ article p {
   font-size: 1.2em;
 }
 
+input {
+  max-width: 100%;
+  margin-top: 0.8em;
+}
+
 p img {
   min-width: 20%;
   max-width: 100%;
   display: block;
   margin: 10px auto;
+}
+
+textarea {
+  max-width: 100%;
 }

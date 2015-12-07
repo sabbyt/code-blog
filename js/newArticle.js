@@ -14,6 +14,7 @@ $('#write').on('keyup', function(){
 });
 
 var makeNewArticle = {};
+var genJSON;
 
 makeNewArticle.JSON = function() {
   $('.genJSON').on('click', function(event){
@@ -26,7 +27,7 @@ makeNewArticle.JSON = function() {
     makeNewArticle.body = marked($('#article-body').val());
 
     genJSON = new Article(makeNewArticle);
-    $('article-json').text(JSON.stringify(genJSON));
+    $('#export-field').text(JSON.stringify(genJSON));
   });
 };
 
