@@ -1,10 +1,17 @@
 var makeNewArticle = {};
-var genJSON;
 var articlePreview = {};
 var cheese = {};
-var theTemplateScript;
-var theTemplate;
-var theCompiledTemplate;
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: true,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false
+});
 
 $('#write').on('keyup', function(){
   articlePreview.title = $('#article-title').val();
@@ -12,14 +19,14 @@ $('#write').on('keyup', function(){
   articlePreview.authorUrl = $('#article-author-url').val();
   articlePreview.publishedOn = new Date();
   articlePreview.category = $('#article-category').val();
-  articlePreview.body = marked('<pre><code>'+$('#article-body').val() + '</code></pre>');
+  articlePreview.body = '<pre><code>' + (marked($('#article-body').val())) + '</code></pre>';
 
   cheese.articleList = new Article(articlePreview);
 
   var articleTemplateRun = function () {
-    theTemplateScript = $('#article-template').html();
-    theTemplate = Handlebars.compile(theTemplateScript);
-    theCompiledTemplate = theTemplate(cheese.articleList);
+    var theTemplateScript = $('#article-template').html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledTemplate = theTemplate(cheese.articleList);
     $('#articlesPreview').html(theCompiledTemplate);
   };
 
@@ -41,7 +48,7 @@ makeNewArticle.JSON = function() {
     makeNewArticle.publishedOn = new Date();
     makeNewArticle.body = marked($('#article-body').val());
 
-    genJSON = new Article(makeNewArticle);
+    var genJSON = new Article(makeNewArticle);
     $('#export-field').text(JSON.stringify(genJSON));
   });
 };
