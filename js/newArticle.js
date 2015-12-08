@@ -19,8 +19,7 @@ $('#write').on('keyup', function(){
   var articleTemplateRun = function () {
     theTemplateScript = $('#article-template').html();
     theTemplate = Handlebars.compile(theTemplateScript);
-    theCompiledTemplate = theTemplate(cheese);
-    console.log('lalala'+theCompiledTemplate);
+    theCompiledTemplate = theTemplate(cheese.articleList);
     $('#articlesPreview').html(theCompiledTemplate);
   };
 
