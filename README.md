@@ -46,11 +46,15 @@ Assignment for Day 3 of Code Fellows 301:
 
 Assignment for Day 4 of Code Fellows 301:
 
+* New user stories derived from assignment prompt.
+
 * Added handlebar.js to template new articles.
 
 * Organised CSS into SMACSS.
 
 Assignment for Day 5 of Code Fellows 301:
+
+* New user stories derived from assignment prompt.
 
 * Pair-programming partner: Seth Moore.
 
@@ -66,4 +70,8 @@ Assignment for Day 5 of Code Fellows 301:
 
 Assignment for Day 6 of Code Fellows 301:
 
-* Added local storage feature to save on refresh.
+* New user stories derived from assignment prompt.
+
+* Incorporated handlebar.js template to live preview.
+
+* Started adapting AJAX.
