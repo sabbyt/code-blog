@@ -8,6 +8,11 @@
   border-radius: 25px;
 }
 
+/*MODULES - LIVE PREVIEW*/
+#articlesPreview {
+  padding-bottom: 2em;
+}
+
 /*MODULES - FOOTER*/
 #footer {
   width: 100%;
