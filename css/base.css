@@ -13,8 +13,9 @@ header, body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, {
 
 header h1 {
   text-align: center;
-  font-family: Garamond, Baskerville, serif;
+  font-family: 'Slabo 27px', Garamond, serif;
   font-size: 5em;
+  padding-top:0.5em;
 }
 
 article {

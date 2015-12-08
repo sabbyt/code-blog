@@ -3,6 +3,7 @@
 <head>
   <title>Sabrina's Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/skeleton.css">
@@ -10,6 +11,21 @@
   <link rel="stylesheet" type="text/css" href="css/layout.css">
   <link rel="stylesheet" type="text/css" href="css/module.css">
   <link rel="stylesheet" type="text/css" href="css/state.css">
+
+  <script src="vendor/handlebars-v4.0.5.js"></script>
+  <script id="article-template" type="text/x-handlebars-template">
+    <article class="container blogPosts">
+      <h1>{{title}}</h1>
+      <h5><a href={{{authorUrl}}}>
+        {{{author}}}</h5>
+      </a></h5>
+      <h5>Published on {{date}}, {{timestamp}}</h5>
+      <h6>Category: {{category}}</h6>
+      <div class="parBod">{{{body}}}</div>
+      <div class="read-more"><button name="button" class="readButt button-primary">Read more</button>
+      </div>
+    </article>
+  </script>
 </head>
 
 <body>
@@ -43,15 +59,13 @@
           <input type="text" id="article-category" placeholder="Category" required>
         </label>
         <textarea id="article-body" rows="40" cols="80" placeholder="Article Body"required></textarea>
-        <label>
-          <input type="checkbox" id="article-published"> Publish?
-        </label>
       </form>
     </section>
 
     <section id="articlesPreview" class="tab-content container">
     </section>
-    <div class="genJSON container"><button name="button" class="button-primary genJSON">Create!</button></div>
+
+    <div class="genJSON container"><button name="button" class="button-primary genJSON">Create JSON!</button></div>
 
     <section id="article-export" class="container">
       <label id="export-field" for="article-json">
@@ -69,6 +83,7 @@
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script src="js/articles.js"></script>
   <script src="js/newArticle.js"></script>
 </body>

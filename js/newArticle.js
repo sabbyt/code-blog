@@ -1,20 +1,42 @@
-$('#write').on('keyup', function(){
-  var $articlePreview = '<h1>'+ $('#article-title').val() + '</h1>';
-  $articlePreview += '<h5>' + $('#article-author').val() + '</h5>';
-  $articlePreview += '<h5><a>' + $('#article-author-url').val() + '</a></h5>';
-  $articlePreview += '<h5>Published on ' + new Date() + '</h5>';
-  $articlePreview += '<h6>Category: ' + $('#article-category').val() + '</h6>';
-  $articlePreview += '```' + $('#article-body').val() + '```';
-  $('#articlesPreview').html(marked($articlePreview));
+var makeNewArticle = {};
+var articlePreview = {};
+var cheese = {};
 
-  $('pre code').addClass('html');
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: true,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false
+});
+
+$('#write').on('keyup', function(){
+  articlePreview.title = $('#article-title').val();
+  articlePreview.author = $('#article-author').val();
+  articlePreview.authorUrl = $('#article-author-url').val();
+  articlePreview.publishedOn = new Date();
+  articlePreview.category = $('#article-category').val();
+  articlePreview.body = '<pre><code>' + (marked($('#article-body').val())) + '</code></pre>';
+
+  cheese.articleList = new Article(articlePreview);
+
+  var articleTemplateRun = function () {
+    var theTemplateScript = $('#article-template').html();
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledTemplate = theTemplate(cheese.articleList);
+    $('#articlesPreview').html(theCompiledTemplate);
+  };
+
+  articleTemplateRun();
+
   $('pre code').each(function(i, block) {
+    $('pre code').addClass('html');
     hljs.highlightBlock(block);
   });
 });
-
-var makeNewArticle = {};
-var genJSON;
 
 makeNewArticle.JSON = function() {
   $('.genJSON').on('click', function(event){
@@ -26,10 +48,29 @@ makeNewArticle.JSON = function() {
     makeNewArticle.publishedOn = new Date();
     makeNewArticle.body = marked($('#article-body').val());
 
-    genJSON = new Article(makeNewArticle);
+    var genJSON = new Article(makeNewArticle);
     $('#export-field').text(JSON.stringify(genJSON));
   });
 };
+
+
+// makeNewArticle.setToStore = function() {
+//   var setLocal = JSON.stringify(genJSON);
+//   localStorage.setItem("saved", setLocal);
+//   console.log('done');
+//   console.log(setLocal);
+// };
+// makeNewArticle.setToStore();
+
+// makeNewArticle.getFromStore = function (username) {
+//   var getLocal = localStorage.getItem(setLocal);
+//   var unstringedTemp;
+//   if(getLocal != null) {
+//     unstringedTemp = JSON.parse(getLocal);
+//   }
+// };
+// makeNewArticle.getFromStore("setLocal");
+
 
 $(document).ready(function(){
   makeNewArticle.JSON();

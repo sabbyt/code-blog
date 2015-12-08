@@ -63,3 +63,7 @@ Assignment for Day 5 of Code Fellows 301:
 * Added syntax highlighting.
 
 * Export of newly created blog post in JSON.
+
+Assignment for Day 6 of Code Fellows 301:
+
+* Added local storage feature to save on refresh.

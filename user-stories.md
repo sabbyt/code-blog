@@ -27,3 +27,7 @@ USER STORIES
 20. As an author, I want a live preview of how my post looks, so that I know if I screw up the markdown.
 21. As an author, I want code samples to have syntax highlighting, so that my readers see code as it should appear.
 22. As an author, I want an export of the final article, so that I can paste it into blogArticles.js to publish it.
+
+23. As a developer, I want to use the same template for Articles, so that I don't have to update it in 2 places.
+24. As a reader, I want only want to download all the blog posts if there are changes, so that the page is faster and everyone saves bandwidth.
+25. As a reader, I want the site to have good typography, so that it's easy on the eyes.
