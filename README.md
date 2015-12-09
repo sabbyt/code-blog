@@ -75,3 +75,9 @@ Assignment for Day 6 of Code Fellows 301:
 * Incorporated handlebar.js template to live preview.
 
 * Started adapting AJAX.
+
+Assignment for Day 7 of Code Fellows 301:
+
+* Included a stats.html page to view vanity stats.
+
+* Included total author
