@@ -4,13 +4,16 @@ stats.words = [];
 
 $.getJSON('js/hackerIpsum.json', function(data){
   stats.data = data;
-  console.log('1');
 })
   .done(function(){
     stats.totalArticles();
     stats.totalAuthors();
     stats.totalWords();
 });
+
+stats.count = function(a,b) {
+  return a + b;
+};
 
 stats.pluck = function(property, collection) {
   return collection.map(function(e){
@@ -30,11 +33,9 @@ stats.totalAuthors = function() {
 
 stats.totalWords = function() {
   stats.words = stats.pluck('markdown', stats.data);
-  var wordCount = stats.words[0].split(/\s+/);
-  console.log(wordCount);
-  $('#totalWords').html('Total words: ' + wordCount.length);
+  var wordCount = stats.words.map(function(item) {
+    return item.split(' ').length;
+  });
+  var total = wordCount.reduce(stats.count);
+  $('#totalWords').html('Total words: ' + total);
 };
-
-
-
-
