@@ -1,6 +1,7 @@
 var stats = {};
 stats.author = [];
 stats.words = [];
+var wordCount;
 
 $.getJSON('js/hackerIpsum.json', function(data){
   stats.data = data;
@@ -9,7 +10,14 @@ $.getJSON('js/hackerIpsum.json', function(data){
     stats.totalArticles();
     stats.totalAuthors();
     stats.totalWords();
+    stats.avgOverall();
 });
+
+stats.avgOverall = function() {
+  var averageWord = wordCount.reduce(stats.count)/stats.data.length;
+  console.log(averageWord);
+  $('#avgOverall').html('Average word length across all posts: ' + averageWord + ' words');
+};
 
 stats.count = function(a,b) {
   return a + b;
@@ -33,7 +41,7 @@ stats.totalAuthors = function() {
 
 stats.totalWords = function() {
   stats.words = stats.pluck('markdown', stats.data);
-  var wordCount = stats.words.map(function(item) {
+  wordCount = stats.words.map(function(item) {
     return item.split(' ').length;
   });
   var total = wordCount.reduce(stats.count);
