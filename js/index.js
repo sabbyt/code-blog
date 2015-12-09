@@ -10,4 +10,6 @@ $(document).ready(function(){
   blog.sortArticlesDate();
   articleTemplateRun();
   blog.truncateArticles();
+  webDB.init();
+  webDB.importArticlesFrom('js/hackerIpsum.json');
 });
