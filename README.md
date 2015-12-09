@@ -75,3 +75,13 @@ Assignment for Day 6 of Code Fellows 301:
 * Incorporated handlebar.js template to live preview.
 
 * Started adapting AJAX.
+
+Assignment for Day 7 of Code Fellows 301:
+
+* New user stories derived from assignment prompt.
+
+* Collaborated with Pat Yau.
+
+* Included a stats.html page to view vanity stats.
+
+* Stats include total number of articles, total number of authors, total number of words, average word length across all posts and average word length by author.
