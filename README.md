@@ -78,6 +78,10 @@ Assignment for Day 6 of Code Fellows 301:
 
 Assignment for Day 7 of Code Fellows 301:
 
+* New user stories derived from assignment prompt.
+
+* Collaborated with Pat Yau.
+
 * Included a stats.html page to view vanity stats.
 
-* Included total author
+* Stats include total number of articles, total number of authors, total number of words, average word length across all posts and average word length by author.

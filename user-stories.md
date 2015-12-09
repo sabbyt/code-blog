@@ -31,3 +31,9 @@ USER STORIES
 23. As a developer, I want to use the same template for Articles, so that I don't have to update it in 2 places.
 24. As a reader, I want only want to download all the blog posts if there are changes, so that the page is faster and everyone saves bandwidth.
 25. As a reader, I want the site to have good typography, so that it's easy on the eyes.
+
+
+26. As a site owner, I want a place to see my blog info, so that I can check my vanity stats.
+27. As a site owner, I want to see total number of articles, authors, and words on the site, so that I can see blog health at a glance.
+28. As a site owner, I want to know average word length across all posts, so that I know how erudite the writing is.
+29. As a site owner, I want to know the average length (in words) of all articles by each individual author, so that I can assign appropriate bonuses.
