@@ -1,10 +1,14 @@
+var theTemplate;
 var content = {};
-
-content.articleList = blog.articles;
+var theCompiledTemplate;
 
 var articleTemplateRun = function () {
-  var theTemplateScript = $('#article-template').html();
-  var theTemplate = Handlebars.compile(theTemplateScript);
-  var theCompiledTemplate = theTemplate(content);
-  $('.newArticle-placeholder').html(theCompiledTemplate);
+$.get('template/template.handlebars',function(data){
+    theTemplate = Handlebars.compile(data);
+  }).done(function(){
+    content.articleList = blog.articles.map(theTemplate);
+    content.articleList.forEach(function(el){
+      $('#articlesPlaceholder').append(el);
+    });
+  });
 };

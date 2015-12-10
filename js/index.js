@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  $.getJSON('../data/hackerIpsum.json', function(data){
+    blog.fullArticles = data;
+  })
+  .done(function(){
   blog.createArticles();
   blog.sortArticlesAuthor();
   blog.sortArticlesCategory();
@@ -13,4 +17,5 @@ $(document).ready(function(){
   webDB.init();
   webDB.destroyDB();
   webDB.importArticlesFrom('data/hackerIpsum.json');
+  });
 });

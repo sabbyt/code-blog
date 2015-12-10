@@ -2,6 +2,9 @@ var makeNewArticle = {};
 var articlePreview = {};
 var articleList = {};
 
+var newPost = {};
+var theTemplate;
+
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -19,15 +22,17 @@ $('#write').on('keyup', function(){
   articlePreview.authorUrl = $('#article-author-url').val();
   articlePreview.publishedOn = new Date();
   articlePreview.category = $('#article-category').val();
-  articlePreview.body = '<pre><code>' + (marked($('#article-body').val())) + '</code></pre>';
+  articlePreview.markdown = '<pre><code>' + (marked($('#article-body').val())) + '</code></pre>';
 
   articleList.newSubmission = new Article(articlePreview);
 
   var articleTemplateRun = function () {
-    var theTemplateScript = $('#article-template').html();
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledTemplate = theTemplate(articleList.newSubmission);
-    $('#articlesPreview').html(theCompiledTemplate);
+  $.get('template/template.handlebars',function(data){
+    theTemplate = Handlebars.compile(data);
+    }).done(function(){
+      newPost.articleList = theTemplate(articleList.newSubmission);
+      $('#articlesPreview').html(newPost.articleList);
+    });
   };
 
   articleTemplateRun();
@@ -46,7 +51,7 @@ makeNewArticle.JSON = function() {
     makeNewArticle.author = $('#article-author').val();
     makeNewArticle.authorUrl = $('#article-author-url').val();
     makeNewArticle.publishedOn = new Date();
-    makeNewArticle.body = marked($('#article-body').val());
+    makeNewArticle.markdown = marked($('#article-body').val());
 
     var genJSON = new Article(makeNewArticle);
     console.log('stringified genJSON' + JSON.stringify(genJSON));

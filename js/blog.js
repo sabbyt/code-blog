@@ -1,5 +1,5 @@
 var blog = {};
-
+blog.fullArticles = [];
 blog.articles = [];
 
 blog.sortArticlesDate = function() {
@@ -45,12 +45,14 @@ blog.sortArticlesCategory = function() {
 };
 
 blog.createArticles = function() {
-  for (var i=0; i<blog.rawData.length; i+=1) {
-    if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
+  for (var i=0; i<blog.fullArticles.length; i+=1) {
+    if (blog.fullArticles[i].publishedOn === '' || blog.fullArticles[i].publishedOn.toLowerCase() === 'draft') {
       console.log('Unpublished draft');
+      console.log('Im running');
     }else{
-      var callObject = new Article(blog.rawData[i]);
+      var callObject = new Article(blog.fullArticles[i]);
       blog.articles.push(callObject);
+      console.log('Im putting stuff in the blog.articles');
     }
   }
 };
@@ -61,6 +63,7 @@ blog.truncateArticles = function() {
     event.preventDefault();
     $(this).parent().siblings('.parBod').find('p').removeAttr('style');
     $(this).hide();
+    console.log('this run');
   });
 };
 
