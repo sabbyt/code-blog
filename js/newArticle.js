@@ -1,6 +1,6 @@
 var makeNewArticle = {};
 var articlePreview = {};
-var cheese = {};
+var articleList = {};
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -21,12 +21,12 @@ $('#write').on('keyup', function(){
   articlePreview.category = $('#article-category').val();
   articlePreview.body = '<pre><code>' + (marked($('#article-body').val())) + '</code></pre>';
 
-  cheese.articleList = new Article(articlePreview);
+  articleList.newSubmission = new Article(articlePreview);
 
   var articleTemplateRun = function () {
     var theTemplateScript = $('#article-template').html();
     var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledTemplate = theTemplate(cheese.articleList);
+    var theCompiledTemplate = theTemplate(articleList.newSubmission);
     $('#articlesPreview').html(theCompiledTemplate);
   };
 
