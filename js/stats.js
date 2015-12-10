@@ -4,7 +4,7 @@ stats.words = [];
 var wordCount;
 var uniqueAuthor;
 
-$.getJSON('js/hackerIpsum.json', function(data){
+$.getJSON('data/hackerIpsum.json', function(data){
   stats.data = data;
 })
   .done(function(){

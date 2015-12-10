@@ -12,5 +12,5 @@ $(document).ready(function(){
   blog.truncateArticles();
   webDB.init();
   webDB.destroyDB();
-  webDB.importArticlesFrom('js/hackerIpsum.json');
+  webDB.importArticlesFrom('data/hackerIpsum.json');
 });
