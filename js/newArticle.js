@@ -1,6 +1,7 @@
 var makeNewArticle = {};
 var articlePreview = {};
 var articleList = {};
+var genJSON;
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -48,9 +49,15 @@ makeNewArticle.JSON = function() {
     makeNewArticle.publishedOn = new Date();
     makeNewArticle.body = marked($('#article-body').val());
 
-    var genJSON = new Article(makeNewArticle);
+    genJSON = new Article(makeNewArticle);
+    console.log('stringified genJSON' + JSON.stringify(genJSON));
+
     $('#export-field').text(JSON.stringify(genJSON));
   });
+};
+
+makeNewArticle.addToServer = function() {
+
 };
 
 
