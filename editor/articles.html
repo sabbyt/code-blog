@@ -4,17 +4,18 @@
   <title>Edit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/normalize.css">
-  <link rel="stylesheet" type="text/css" href="vendor/skeleton.css">
-  <link rel="stylesheet" type="text/css" href="css/base.css">
-  <link rel="stylesheet" type="text/css" href="css/layout.css">
-  <link rel="stylesheet" type="text/css" href="css/module.css">
-  <link rel="stylesheet" type="text/css" href="css/state.css">
+  <link requiredel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+  <link rel="stylesheet" type="text/css" href="../vendor/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../vendor/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
+  <link rel="stylesheet" type="text/css" href="../css/layout.css">
+  <link rel="stylesheet" type="text/css" href="../css/module.css">
+  <link rel="stylesheet" type="text/css" href="../css/state.css">
 
-  <script src="vendor/handlebars-v4.0.5.js"></script>
+  <script src="../vendor/handlebars-v4.0.5.js"></script>
   <script id="article-template" type="text/x-handlebars-template">
-    <article class="container blogPosts">
+    <article class="c
+    ontainer blogPosts">
       <h1>{{title}}</h1>
       <h5><a href={{{authorUrl}}}>
         {{{author}}}</h5>
@@ -33,11 +34,11 @@
     <h1>Sabrina Tee</h1>
     <nav id="navbar" class="container">
       <ul>
-        <li><a href="index.html"><span>HOME</span><br/><img class="icon" src="img/home5.svg"/></a></li>
-        <li><a href="index.html" id="about-click"><span>ABOUT</span><br/><img class="icon" src="img/smiling36.svg"/></a></li>
-        <li><a href="https://github.com/sabbyt" target="_blank"><span>GITHUB</span><br/><img class="icon" src="img/cat6.svg"/></a></li>
-        <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="img/linkedin.svg"/></a></li>
-        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="img/wassap.svg"/></a></li>
+        <li><a href="index.html"><span>HOME</span><br/><img class="icon" src="../img/home5.svg"/></a></li>
+        <li><a href="index.html" id="about-click"><span>ABOUT</span><br/><img class="icon" src="../img/smiling36.svg"/></a></li>
+        <li><a href="https://github.com/sabbyt" target="_blank"><span>GITHUB</span><br/><img class="icon" src="../img/cat6.svg"/></a></li>
+        <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="../img/linkedin.svg"/></a></li>
+        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="../img/wassap.svg"/></a></li>
       </ul>
     </nav>
   </header>
@@ -66,6 +67,8 @@
     </section>
 
     <div class="genJSON container"><button name="button" class="button-primary genJSON">Create JSON!</button></div>
+    <div class="container"><button name="button" class="button-primary update">Update!</button></div>
+    <div class="container"><button name="button" class="button-primary delete">Delete!</button></div>
 
     <section id="article-export" class="container">
       <label id="export-field" for="article-json">
@@ -81,12 +84,13 @@
   </footer>
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="vendor/html5sql.js" charset="utf-8"></script>
+  <script src="../vendor/html5sql.js" charset="utf-8"></script>
+  <script type="text/javascript" src="../js/webdb.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <script src="js/articles.js"></script>
-  <script src="js/newArticle.js"></script>
+  <script src="../js/blog.js"></script>
+  <script src="../js/editor.js"></script>
 </body>
 
 </html>

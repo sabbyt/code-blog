@@ -77,3 +77,9 @@ blog.showAboutMe = function() {
 blog.hideRedundant = function() {
   $('#blogPosts').hide();
 };
+
+// **************EDITOR PAGE CODE BELOW
+
+
+
+
