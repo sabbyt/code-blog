@@ -1,7 +1,6 @@
 var makeNewArticle = {};
 var articlePreview = {};
 var articleList = {};
-var genJSON;
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -49,35 +48,12 @@ makeNewArticle.JSON = function() {
     makeNewArticle.publishedOn = new Date();
     makeNewArticle.body = marked($('#article-body').val());
 
-    genJSON = new Article(makeNewArticle);
+    var genJSON = new Article(makeNewArticle);
     console.log('stringified genJSON' + JSON.stringify(genJSON));
 
     $('#export-field').text(JSON.stringify(genJSON));
   });
 };
-
-makeNewArticle.addToServer = function() {
-
-};
-
-
-// makeNewArticle.setToStore = function() {
-//   var setLocal = JSON.stringify(genJSON);
-//   localStorage.setItem("saved", setLocal);
-//   console.log('done');
-//   console.log(setLocal);
-// };
-// makeNewArticle.setToStore();
-
-// makeNewArticle.getFromStore = function (username) {
-//   var getLocal = localStorage.getItem(setLocal);
-//   var unstringedTemp;
-//   if(getLocal != null) {
-//     unstringedTemp = JSON.parse(getLocal);
-//   }
-// };
-// makeNewArticle.getFromStore("setLocal");
-
 
 $(document).ready(function(){
   makeNewArticle.JSON();
