@@ -37,3 +37,9 @@ USER STORIES
 27. As a site owner, I want to see total number of articles, authors, and words on the site, so that I can see blog health at a glance.
 28. As a site owner, I want to know average word length across all posts, so that I know how erudite the writing is.
 29. As a site owner, I want to know the average length (in words) of all articles by each individual author, so that I can assign appropriate bonuses.
+
+30. As a developer, I want article data to persist with SQL, so that I can store more and have more query flexibility.
+31. As a developer, I want a more flexible editor page (editor/articles.html) that can add, update, or delete entries.
+32. As an author, I want an admin mode with an edit link on each article (index.html?admin=true).
+33. As an author, I want to load an existing article in the editor (editor/articles.html?id=42).
+34. As an author, I want to have draft posts, so that I can save my writing without publishing.

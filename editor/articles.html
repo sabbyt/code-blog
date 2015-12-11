@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+  <link requiredel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+  <link rel="stylesheet" type="text/css" href="../vendor/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../vendor/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="../css/base.css">
+  <link rel="stylesheet" type="text/css" href="../css/layout.css">
+  <link rel="stylesheet" type="text/css" href="../css/module.css">
+  <link rel="stylesheet" type="text/css" href="../css/state.css">
+</head>
+
+<body>
+  <header>
+    <h1>Sabrina Tee</h1>
+    <nav id="navbar" class="container">
+      <ul>
+        <li><a href="../index.html"><span>HOME</span><br/><img class="icon" src="../img/home5.svg"/></a></li>
+        <li><a href="../index.html" id="about-click"><span>ABOUT</span><br/><img class="icon" src="../img/smiling36.svg"/></a></li>
+        <li><a href="https://github.com/sabbyt" target="_blank"><span>GITHUB</span><br/><img class="icon" src="../img/cat6.svg"/></a></li>
+        <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="../img/linkedin.svg"/></a></li>
+        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="../img/wassap.svg"/></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="write" class="tab-content container">
+      <h1 class = "center">Editor! Write Me!</h1>
+      <form>
+        <label>
+          <input type="text" id="article-title" placeholder="Article Title" required>
+        </label>
+        <label>
+          <input type="text" id="article-author" placeholder="Author Name" required>
+        </label>
+        <label>
+          <input type="text" id="article-author-url" placeholder="Author's URL" required>
+        </label>
+        <label>
+          <input type="text" id="article-category" placeholder="Category" required>
+        </label>
+        <textarea id="article-body" rows="40" cols="80" placeholder="Article Body"required></textarea>
+      </form>
+    </section>
+
+    <section id="articlesPreview" class="tab-content container">
+    </section>
+
+    <div class="container"><button name="button" class="button-primary addPost">Add!</button></div>
+    <div class="container"><button name="button" class="button-primary updatePost">Update!</button></div>
+    <div class="container"><button name="button" class="button-primary deletePost">Delete!</button></div>
+    <div class="genJSON container"><button name="button" class="button-primary genJSON">Create JSON!</button></div>
+
+    <section id="article-export" class="container">
+      <label id="export-field" for="article-json">
+        <input type="text" readonly id="article-json">
+      </label>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div id="footer">
+      <p>Copyright 2015 Sabrina Tee</p>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="../vendor/html5sql.js" charset="utf-8"></script>
+  <script src="../vendor/handlebars-v4.0.5.js"></script>
+  <script type="text/javascript" src="../js/webdb.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../js/blog.js"></script>
+  <script src="../js/articles.js"></script>
+  <script src="../js/newArticle.js"></script>
+  <script src="../js/editor.js"></script>
+</body>
+
+</html>

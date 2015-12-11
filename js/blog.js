@@ -1,5 +1,5 @@
 var blog = {};
-
+blog.fullArticles = [];
 blog.articles = [];
 
 blog.sortArticlesDate = function() {
@@ -19,7 +19,7 @@ blog.sortArticlesAuthor = function() {
   });
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
-    if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].category+'")').length === 0) {
+    if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].author+'")').length === 0) {
       $authorList.removeAttr('id').addClass('dropdownAuthor');
       $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
       $authorList.appendTo('#selectAuthor');
@@ -45,12 +45,14 @@ blog.sortArticlesCategory = function() {
 };
 
 blog.createArticles = function() {
-  for (var i=0; i<blog.rawData.length; i+=1) {
-    if (blog.rawData[i].publishedOn === '' || blog.rawData[i].publishedOn.toLowerCase() === 'draft') {
+  for (var i=0; i<blog.fullArticles.length; i+=1) {
+    if (blog.fullArticles[i].publishedOn === '' || blog.fullArticles[i].publishedOn.toLowerCase() === 'draft') {
       console.log('Unpublished draft');
+      console.log('Im running');
     }else{
-      var callObject = new Article(blog.rawData[i]);
+      var callObject = new Article(blog.fullArticles[i]);
       blog.articles.push(callObject);
+      console.log('Im putting stuff in the blog.articles');
     }
   }
 };
@@ -61,6 +63,7 @@ blog.truncateArticles = function() {
     event.preventDefault();
     $(this).parent().siblings('.parBod').find('p').removeAttr('style');
     $(this).hide();
+    console.log('this run');
   });
 };
 
@@ -76,4 +79,44 @@ blog.showAboutMe = function() {
 
 blog.hideRedundant = function() {
   $('#blogPosts').hide();
+};
+
+// **************EDITOR PAGE CODE BELOW
+
+blog.loadArticles = function() {
+  $.get('template/template.handlebars', function(data, message, xhr) {
+    Article.prototype.template = Handlebars.compile(data);
+    $.ajax({
+      type: 'HEAD',
+      url: 'data/hackerIpsum.json',
+      success: blog.fetchArticles
+    });
+    console.log('done loading articles');
+  });
+};
+
+blog.fetchArticles = function(data, message, xhr) {
+  var newETag = xhr.getResponseHeader('eTag');
+  if (!localStorage.articlesEtag || localStorage.articlesEtag != newETag) {
+    console.log('cache miss!');
+    localStorage.articlesEtag = newETag;
+    blog.articles = [];
+    webDB.execute(
+      'DELETE FROM articles;', //DELETE ALL THE FILES
+      blog.fetchJSON);
+  } else {
+    console.log('cache hit! never mind do nothing');
+  }
+};
+
+blog.fetchJSON = function() {
+  $.getJSON('data/hackerIpsum.json', blog.updateFromJSON);
+};
+
+blog.updateFromJSON = function (data) {
+  data.forEach(function(item) {
+    var article = new Article(item);
+    blog.articles.push(article);
+  });
+  blog.createArticles();
 };

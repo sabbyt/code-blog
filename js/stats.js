@@ -4,20 +4,20 @@ stats.words = [];
 var wordCount;
 var uniqueAuthor;
 
-$.getJSON('js/hackerIpsum.json', function(data){
+$.getJSON('data/hackerIpsum.json', function(data){
   stats.data = data;
 })
   .done(function(){
     stats.totalArticles();
     stats.totalAuthors();
     stats.totalWords();
-    stats.avgOverall();
-    stats.wordsByAuthor();
+    stats.avgOverallWordLength();
+    // stats.wordsByAuthor();
 });
 
-stats.avgOverall = function() {
+stats.avgOverallWordLength = function() {
   var averageWord = wordCount.reduce(stats.count)/stats.data.length;
-  $('#avgOverall').html('Average word length across all posts: ' + averageWord + ' words');
+  $('#avgOverall').html('<p>Average word length across all posts: ' + averageWord + ' words</p>');
 };
 
 stats.count = function(a,b) {
@@ -31,13 +31,13 @@ stats.pluck = function(property, collection) {
 };
 
 stats.totalArticles = function() {
-  $('#totalArticles').html('Total articles: ' + stats.data.length);
+  $('#totalArticles').html('<p>Total articles: ' + stats.data.length + '</p>');
 };
 
 stats.totalAuthors = function() {
   stats.author = stats.pluck('author', stats.data);
   uniqueAuthor = $.unique(stats.author);
-  $('#totalAuthors').html('Total authors: ' + uniqueAuthor.length);
+  $('#totalAuthors').html('<p>Total authors: ' + uniqueAuthor.length + '</p>');
 };
 
 stats.totalWords = function() {
@@ -46,15 +46,15 @@ stats.totalWords = function() {
     return item.split(' ').length;
   });
   var total = wordCount.reduce(stats.count);
-  $('#totalWords').html('Total words: ' + total);
+  $('#totalWords').html('<p>Total words: ' + total + '</p>');
 };
 
-stats.wordsByAuthor = function() {
-  uniqueAuthor.forEach(function(element, index){
-    var findAuthor = stats.data;
-    console.log(uniqueAuthor);
-    console.log(findAuthor);
-    findAuthor.match(uniqueAuthor);
-    console.log(findAuthor);
-  });
-};
+// stats.wordsByAuthor = function() {
+//   uniqueAuthor.forEach(function(element, index){
+//     var findAuthor = stats.data;
+//     console.log(uniqueAuthor);
+//     console.log(findAuthor);
+//     findAuthor.match(uniqueAuthor);
+//     console.log(findAuthor);
+//   });
+// };

@@ -1,6 +1,9 @@
 var makeNewArticle = {};
 var articlePreview = {};
-var cheese = {};
+var articleList = {};
+
+var newPost = {};
+var theTemplate;
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -19,59 +22,46 @@ $('#write').on('keyup', function(){
   articlePreview.authorUrl = $('#article-author-url').val();
   articlePreview.publishedOn = new Date();
   articlePreview.category = $('#article-category').val();
-  articlePreview.body = '<pre><code>' + (marked($('#article-body').val())) + '</code></pre>';
+  articlePreview.markdown = marked($('#article-body').val());
 
-  cheese.articleList = new Article(articlePreview);
+  articleList.newSubmission = new Article(articlePreview);
 
   var articleTemplateRun = function () {
-    var theTemplateScript = $('#article-template').html();
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledTemplate = theTemplate(cheese.articleList);
-    $('#articlesPreview').html(theCompiledTemplate);
+  $.get('../template/template.handlebars',function(data){
+    theTemplate = Handlebars.compile(data);
+    }).done(function(){
+      newPost.articleList = theTemplate(articleList.newSubmission);
+      $('#articlesPreview').html(newPost.articleList);
+    });
   };
 
   articleTemplateRun();
 
   $('pre code').each(function(i, block) {
-    $('pre code').addClass('html');
+    $('pre code').addClass('hljs');
     hljs.highlightBlock(block);
   });
 });
 
 makeNewArticle.JSON = function() {
-  $('.genJSON').on('click', function(event){
-    event.preventDefault();
+  $('.genJSON').on('click', function(){
     makeNewArticle.title = $('#article-title').val();
     makeNewArticle.category = $('#article-category').val();
     makeNewArticle.author = $('#article-author').val();
     makeNewArticle.authorUrl = $('#article-author-url').val();
     makeNewArticle.publishedOn = new Date();
-    makeNewArticle.body = marked($('#article-body').val());
+    makeNewArticle.markdown = marked($('#article-body').val());
 
     var genJSON = new Article(makeNewArticle);
+    blog.loadArticles();
+
     $('#export-field').text(JSON.stringify(genJSON));
   });
 };
 
-
-// makeNewArticle.setToStore = function() {
-//   var setLocal = JSON.stringify(genJSON);
-//   localStorage.setItem("saved", setLocal);
-//   console.log('done');
-//   console.log(setLocal);
-// };
-// makeNewArticle.setToStore();
-
-// makeNewArticle.getFromStore = function (username) {
-//   var getLocal = localStorage.getItem(setLocal);
-//   var unstringedTemp;
-//   if(getLocal != null) {
-//     unstringedTemp = JSON.parse(getLocal);
-//   }
-// };
-// makeNewArticle.getFromStore("setLocal");
-
-
 $(document).ready(function(){
+  webDB.init();
+  webDB.destroyDB();
+  webDB.importArticlesFrom('data/hackerIpsum.json');
   makeNewArticle.JSON();
 });

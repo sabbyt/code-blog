@@ -84,4 +84,16 @@ Assignment for Day 7 of Code Fellows 301:
 
 * Included a stats.html page to view vanity stats.
 
-* Stats include total number of articles, total number of authors, total number of words, average word length across all posts and average word length by author.
+* Stats include total number of articles, total number of authors, total number of words, average words across all posts.
+
+Assignment for Day 8 of Code Fellows 301:
+
+* New user stories derived from assignment prompt.
+
+* Added functions to send data to SQL for persistence of articles.
+
+* Created editor/articles.html page to add, update or delete entries.
+
+Assignment for Day 9 of Code Fellows 301:
+
+* Template receiving through AJAX and working on all pages.

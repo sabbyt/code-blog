@@ -4,29 +4,12 @@
   <title>Sabrina's Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="vendor/normalize.css">
+  <link rel="stylesheet" type="text/css" href="vendor/skeleton.css">
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/layout.css">
   <link rel="stylesheet" type="text/css" href="css/module.css">
   <link rel="stylesheet" type="text/css" href="css/state.css">
-
-  <script src="vendor/handlebars-v4.0.5.js"></script>
-  <script id="article-template" type="text/x-handlebars-template">
-    {{#each articleList}}
-    <article class="container blogPosts">
-      <h1>{{this.title}}</h1>
-      <h5><a href={{{this.authorUrl}}}>
-        {{{this.author}}}</h5>
-      </a></h5>
-      <h5>Published on {{this.date}}, {{this.timestamp}}</h5>
-      <h6>Category: {{this.category}}</h6>
-      <div class="parBod">{{{this.body}}}</div>
-      <div class="read-more"><button name="button" class="readButt button-primary">Read more</button>
-      </div>
-    </article>
-    {{/each}}
-  </script>
 </head>
 
 <body>
@@ -60,9 +43,7 @@
   </header>
 
   <main>
-    <article>
-      <div class="newArticle-placeholder"></div>
-    </article>
+    <div id="articlesPlaceholder"></div>
 
     <article id="about-me" class="container">
       <h4>About Me!</h4>
@@ -77,9 +58,12 @@
   </footer>
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="vendor/html5sql.js" charset="utf-8"></script>
+  <script src="vendor/handlebars-v4.0.5.js"></script>
+  <script type="text/javascript" src="js/webdb.js"></script>
   <script type="text/javascript" src="js/blog.js"></script>
   <script type="text/javascript" src="js/filters.js"></script>
-  <script type="text/javascript" src="js/blogArticles.js"></script>
+  <script type="text/javascript" src="data/blogArticles.js"></script>
   <script type="text/javascript" src="js/articles.js"></script>
   <script type="text/javascript" src="js/articleTemplate.js"></script>
   <script type="text/javascript" src="js/index.js"></script>

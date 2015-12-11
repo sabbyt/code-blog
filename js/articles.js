@@ -5,7 +5,7 @@ var Article = function(props) {
   this.authorUrl = props.authorUrl;
   this.date = props.publishedOn;
   this.publishedOn = Date.parse(props.publishedOn);
-  this.body = props.body;
+  this.markdown = props.markdown;
 };
 
 Article.prototype.timestamp = function( ) {
@@ -43,4 +43,8 @@ Article.prototype.timestamp = function( ) {
       return 'approximately ' + Math.round(elapsed/msPerYear) + ' years ago';
     }
   }
+};
+
+Article.prototype.toHTML = function() {
+  return this.template(this);
 };
