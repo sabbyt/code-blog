@@ -22,7 +22,7 @@ $('#write').on('keyup', function(){
   articlePreview.authorUrl = $('#article-author-url').val();
   articlePreview.publishedOn = new Date();
   articlePreview.category = $('#article-category').val();
-  articlePreview.markdown = '<pre><code>'+marked($('#article-body').val())+'</code></pre>';
+  articlePreview.markdown = marked($('#article-body').val());
 
   articleList.newSubmission = new Article(articlePreview);
 
@@ -38,7 +38,7 @@ $('#write').on('keyup', function(){
   articleTemplateRun();
 
   $('pre code').each(function(i, block) {
-    // $('pre code').addClass('html');
+    $('pre code').addClass('hljs');
     hljs.highlightBlock(block);
   });
 });
