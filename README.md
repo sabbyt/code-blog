@@ -93,3 +93,7 @@ Assignment for Day 8 of Code Fellows 301:
 * Added functions to send data to SQL for persistence of articles.
 
 * Created editor/articles.html page to add, update or delete entries.
+
+Assignment for Day 9 of Code Fellows 301:
+
+* Template receiving through AJAX and working on all pages.
