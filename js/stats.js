@@ -3,6 +3,8 @@ stats.author = [];
 stats.words = [];
 var wordCount;
 var uniqueAuthor;
+var totalWords;
+var totalWordLength;
 
 $.getJSON('data/hackerIpsum.json', function(data){
   stats.data = data;
@@ -16,8 +18,12 @@ $.getJSON('data/hackerIpsum.json', function(data){
 });
 
 stats.avgOverallWordLength = function() {
-  var averageWord = wordCount.reduce(stats.count)/stats.data.length;
-  $('#avgOverall').html('<p>Average word length across all posts: ' + averageWord + ' words</p>');
+  totalWordLength = stats.words.map(function(item) {
+    return item.split('').length;
+  });
+  var totalWordLengthNumber = totalWordLength.reduce(stats.count);
+  var averageWordLength = Math.round(totalWordLengthNumber/totalWords);
+  $('#avgOverall').html('<p>Average word length across all posts: ' + averageWordLength + ' letters</p>');
 };
 
 stats.count = function(a,b) {
@@ -45,8 +51,8 @@ stats.totalWords = function() {
   wordCount = stats.words.map(function(item) {
     return item.split(' ').length;
   });
-  var total = wordCount.reduce(stats.count);
-  $('#totalWords').html('<p>Total words: ' + total + '</p>');
+  totalWords = wordCount.reduce(stats.count);
+  $('#totalWords').html('<p>Total words: ' + totalWords + '</p>');
 };
 
 // stats.wordsByAuthor = function() {
