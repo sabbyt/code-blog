@@ -11,22 +11,6 @@
   <link rel="stylesheet" type="text/css" href="../css/layout.css">
   <link rel="stylesheet" type="text/css" href="../css/module.css">
   <link rel="stylesheet" type="text/css" href="../css/state.css">
-
-  <script src="../vendor/handlebars-v4.0.5.js"></script>
-  <script id="article-template" type="text/x-handlebars-template">
-    <article class="c
-    ontainer blogPosts">
-      <h1>{{title}}</h1>
-      <h5><a href={{{authorUrl}}}>
-        {{{author}}}</h5>
-      </a></h5>
-      <h5>Published on {{date}}, {{timestamp}}</h5>
-      <h6>Category: {{category}}</h6>
-      <div class="parBod">{{{body}}}</div>
-      <div class="read-more"><button name="button" class="readButt button-primary">Read more</button>
-      </div>
-    </article>
-  </script>
 </head>
 
 <body>
@@ -86,6 +70,7 @@
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="../vendor/html5sql.js" charset="utf-8"></script>
+  <script src="../vendor/handlebars-v4.0.5.js"></script>
   <script type="text/javascript" src="../js/webdb.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
