@@ -44,8 +44,7 @@ $('#write').on('keyup', function(){
 });
 
 makeNewArticle.JSON = function() {
-  $('.genJSON').on('click', function(event){
-    event.preventDefault();
+  $('.genJSON').on('click', function(){
     makeNewArticle.title = $('#article-title').val();
     makeNewArticle.category = $('#article-category').val();
     makeNewArticle.author = $('#article-author').val();
@@ -54,12 +53,15 @@ makeNewArticle.JSON = function() {
     makeNewArticle.markdown = marked($('#article-body').val());
 
     var genJSON = new Article(makeNewArticle);
-    console.log('stringified genJSON' + JSON.stringify(genJSON));
+    blog.loadArticles();
 
     $('#export-field').text(JSON.stringify(genJSON));
   });
 };
 
 $(document).ready(function(){
+  webDB.init();
+  webDB.destroyDB();
+  webDB.importArticlesFrom('data/hackerIpsum.json');
   makeNewArticle.JSON();
 });

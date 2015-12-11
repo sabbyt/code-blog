@@ -83,6 +83,40 @@ blog.hideRedundant = function() {
 
 // **************EDITOR PAGE CODE BELOW
 
+blog.loadArticles = function() {
+  $.get('template/template.handlebars', function(data, message, xhr) {
+    Article.prototype.template = Handlebars.compile(data);
+    $.ajax({
+      type: 'HEAD',
+      url: 'data/hackerIpsum.json',
+      success: blog.fetchArticles
+    });
+    console.log('done loading articles');
+  });
+};
 
+blog.fetchArticles = function(data, message, xhr) {
+  var newETag = xhr.getResponseHeader('eTag');
+  if (!localStorage.articlesEtag || localStorage.articlesEtag != newETag) {
+    console.log('cache miss!');
+    localStorage.articlesEtag = newETag;
+    blog.articles = [];
+    webDB.execute(
+      'DELETE FROM articles;', //DELETE ALL THE FILES
+      blog.fetchJSON);
+  } else {
+    console.log('cache hit! never mind do nothing');
+  }
+};
 
+blog.fetchJSON = function() {
+  $.getJSON('data/hackerIpsum.json', blog.updateFromJSON);
+};
 
+blog.updateFromJSON = function (data) {
+  data.forEach(function(item) {
+    var article = new Article(item);
+    blog.articles.push(article);
+  });
+  blog.createArticles();
+};

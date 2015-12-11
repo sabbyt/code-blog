@@ -4,6 +4,7 @@ $(document).ready(function(){
   })
   .done(function(){
   blog.createArticles();
+  blog.loadArticles();
   blog.sortArticlesAuthor();
   blog.sortArticlesCategory();
   blog.hideRedundant();
