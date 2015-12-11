@@ -5,8 +5,8 @@ blog.populateAutFilter = function() {
     var theChosenOne = $theChosenOneJQ;
     $('#selectAuthor').find('option:selected');
     $('article').hide();
-    for (var i=0; i<blog.rawData.length; i+=1) {
-      var matchAut = blog.rawData[i].author.match(theChosenOne);
+    for (var i=0; i<blog.fullArticles.length; i+=1) {
+      var matchAut = blog.fullArticles[i].author.match(theChosenOne);
       if (matchAut !== null) {
         $('article').find('h5:contains("'+theChosenOne+'")').parentsUntil('main').removeAttr('style');
       }
@@ -21,8 +21,8 @@ blog.populateCatFilter = function() {
     var theChosenCat = $chosenCatJQ;
     $('#selectCat').find('option:selected');
     $('article').hide();
-    for (var j=0; j<blog.rawData.length; j+=1) {
-      var matchCat = blog.rawData[j].category.match(theChosenCat);
+    for (var j=0; j<blog.fullArticles.length; j+=1) {
+      var matchCat = blog.fullArticles[j].category.match(theChosenCat);
       if (matchCat !== null) {
         $('article').find('h6:contains("'+theChosenCat+'")').parentsUntil('main').removeAttr('style');
       }

@@ -19,7 +19,7 @@ blog.sortArticlesAuthor = function() {
   });
   for (var i=0; i<blogAuthorAlpha.length; i+=1) {
     var $authorList = $('#dropdownAuthor').clone();
-    if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].category+'")').length === 0) {
+    if ($('#selectAuthor').find(':contains("'+blogAuthorAlpha[i].author+'")').length === 0) {
       $authorList.removeAttr('id').addClass('dropdownAuthor');
       $authorList.append('<option value="'+blogAuthorAlpha[i].author+ '">' +blogAuthorAlpha[i].author+'</option>');
       $authorList.appendTo('#selectAuthor');
