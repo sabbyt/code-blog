@@ -1,6 +1,5 @@
 var theTemplate;
 var content = {};
-var theCompiledTemplate;
 
 var articleTemplateRun = function () {
 $.get('template/template.handlebars',function(data){
