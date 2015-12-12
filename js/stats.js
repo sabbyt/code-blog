@@ -1,8 +1,7 @@
 var stats = {};
-stats.author = [];
 stats.words = [];
-var wordCount;
 var uniqueAuthor;
+var totalWords;
 
 $.getJSON('data/hackerIpsum.json', function(data){
   stats.data = data;
@@ -12,12 +11,16 @@ $.getJSON('data/hackerIpsum.json', function(data){
     stats.totalAuthors();
     stats.totalWords();
     stats.avgOverallWordLength();
-    // stats.wordsByAuthor();
+    stats.wordsByAuthor();
 });
 
 stats.avgOverallWordLength = function() {
-  var averageWord = wordCount.reduce(stats.count)/stats.data.length;
-  $('#avgOverall').html('<p>Average word length across all posts: ' + averageWord + ' words</p>');
+  var totalWordLength = stats.words.map(function(item) {
+    return item.split('').length;
+  });
+  var totalWordLengthNumber = totalWordLength.reduce(stats.count);
+  var averageWordLength = Math.round(totalWordLengthNumber/totalWords);
+  $('#avgOverall').html('<p>Average word length across all posts: ' + averageWordLength + ' letters</p>');
 };
 
 stats.count = function(a,b) {
@@ -35,6 +38,7 @@ stats.totalArticles = function() {
 };
 
 stats.totalAuthors = function() {
+  stats.author = [];
   stats.author = stats.pluck('author', stats.data);
   uniqueAuthor = $.unique(stats.author);
   $('#totalAuthors').html('<p>Total authors: ' + uniqueAuthor.length + '</p>');
@@ -42,19 +46,30 @@ stats.totalAuthors = function() {
 
 stats.totalWords = function() {
   stats.words = stats.pluck('markdown', stats.data);
-  wordCount = stats.words.map(function(item) {
+  var wordCount = stats.words.map(function(item) {
     return item.split(' ').length;
   });
-  var total = wordCount.reduce(stats.count);
-  $('#totalWords').html('<p>Total words: ' + total + '</p>');
+  totalWords = wordCount.reduce(stats.count);
+  $('#totalWords').html('<p>Total words: ' + totalWords + '</p>');
 };
 
-// stats.wordsByAuthor = function() {
-//   uniqueAuthor.forEach(function(element, index){
-//     var findAuthor = stats.data;
-//     console.log(uniqueAuthor);
-//     console.log(findAuthor);
-//     findAuthor.match(uniqueAuthor);
-//     console.log(findAuthor);
-//   });
-// };
+stats.wordsByAuthor = function() {
+  for(var i=0; i<uniqueAuthor.length; i+=1) {
+    var authorMatch = uniqueAuthor[i];
+    var temp = [];
+    var wordCountByAuthor;
+    for (var j=0; j<stats.data.length; j+=1) {
+      var searchArrayForAuthor = stats.data[j].author.match(authorMatch);
+      if (searchArrayForAuthor !== null) {
+        wordCountByAuthor = (stats.data[j].markdown.split(' ')).length;
+        temp.push(wordCountByAuthor);
+      }
+    }
+    if (temp.length > 1) {
+      var totalWordsByAuthor = temp.reduce(stats.count);
+      $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + totalWordsByAuthor/temp.length + ' words</p>');
+    } else {
+      $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + wordCountByAuthor + ' words</p>');
+    }
+  }
+};
