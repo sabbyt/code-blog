@@ -67,9 +67,9 @@ stats.wordsByAuthor = function() {
     }
     if (temp.length > 1) {
       var totalWordsByAuthor = temp.reduce(stats.count);
-      $('#avgByAuthor').append('<p>Total words by author ' + authorMatch + ': ' + totalWordsByAuthor + ' words</p>');
+      $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + totalWordsByAuthor/temp.length + ' words</p>');
     } else {
-      $('#avgByAuthor').append('<p>Total words by author ' + authorMatch + ': ' + wordCountByAuthor + ' words</p>');
+      $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + wordCountByAuthor + ' words</p>');
     }
   }
 };
