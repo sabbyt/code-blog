@@ -96,6 +96,8 @@ Assignment for Day 8 of Code Fellows 301:
 
 Assignment for Day 9 of Code Fellows 301:
 
+* New user stories derived from assignment prompt.
+
 * Template receiving through AJAX and working on all pages.
 
 * Stats updated to include average length of total words and average words by author.
