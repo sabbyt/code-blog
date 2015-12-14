@@ -1,7 +1,7 @@
 var theTemplate;
 var content = {};
 
-Handlebars.registerHelper('if_admin', function (block) {
+Handlebars.registerHelper('adminButt', function (block) {
   if (blog.getQuery('admin')) {
     return block.fn(this);
   } else {

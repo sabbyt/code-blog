@@ -43,6 +43,19 @@ $('#write').on('keyup', function(){
   });
 });
 
+makeNewArticle.draftMode = function() {
+  var draft = localStorage.getItem('draft');
+  if (draft) {
+    makeNewArticle = JSON.parse(draft);
+    $('#article-title').val(makeNewArticle.title);
+    $('#article-category').val(makeNewArticle.author);
+    $('#article-author').val(makeNewArticle.authorUrl); $('#article-author-url').val(makeNewArticle.markdown);
+    $('#article-body').val(makeNewArticle.category);
+    console.log('draft mode running');
+    console.log(draft);
+  }
+};
+
 makeNewArticle.JSON = function() {
   $('.genJSON').on('click', function(){
     makeNewArticle.title = $('#article-title').val();
@@ -54,6 +67,7 @@ makeNewArticle.JSON = function() {
 
     var genJSON = new Article(makeNewArticle);
     blog.loadArticles();
+    localStorage.setItem('draft', JSON.stringify(makeNewArticle));
 
     $('#export-field').text(JSON.stringify(genJSON));
   });
@@ -62,6 +76,7 @@ makeNewArticle.JSON = function() {
 $(document).ready(function(){
   webDB.init();
   webDB.destroyDB();
-  webDB.importArticlesFrom('data/hackerIpsum.json');
+  webDB.importArticlesFrom('../data/hackerIpsum.json');
+  makeNewArticle.draftMode();
   makeNewArticle.JSON();
 });

@@ -104,4 +104,8 @@ Assignment for Day 9 of Code Fellows 301:
 
 * eTag checking to local storage added to avoid redundant AJAX requests.
 
-* Added admin editing mode. 
+* Added admin editing mode.
+
+Assignment for Day 10 of Code Fellows 301:
+
+*
