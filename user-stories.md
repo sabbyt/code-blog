@@ -43,3 +43,5 @@ USER STORIES
 32. As an author, I want an admin mode with an edit link on each article (index.html?admin=true).
 33. As an author, I want to load an existing article in the editor (editor/articles.html?id=42).
 34. As an author, I want to have draft posts, so that I can save my writing without publishing.
+
+35. As a developer, I want a normalized database, so that author info and article info is more flexible and consistent.
