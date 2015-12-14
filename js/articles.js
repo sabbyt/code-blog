@@ -6,6 +6,7 @@ var Article = function(props) {
   this.date = props.publishedOn;
   this.publishedOn = Date.parse(props.publishedOn);
   this.markdown = marked(props.markdown);
+  this.dbId = props.id;
 };
 
 Article.prototype.timestamp = function( ) {

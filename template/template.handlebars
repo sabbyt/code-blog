@@ -5,7 +5,9 @@
   </a></h5>
   <h5>Published on {{this.date}}, {{this.timestamp}}</h5>
   <h6>Category: {{this.category}}</h6>
+  {{#if_admin}}
   <button class="edit button-primary" data-dbId="{{speshID}}">Edit Post</button>
+  {{/if_admin}}
   <div class="parBod">{{{this.markdown}}}</div>
   <div class="read-more"><button name="button" class="readButt button-primary">Read more</button>
   </div>

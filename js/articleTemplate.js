@@ -1,6 +1,14 @@
 var theTemplate;
 var content = {};
 
+Handlebars.registerHelper('if_admin', function (block) {
+  if (blog.getQuery('admin')) {
+    return block.fn(this);
+  } else {
+    return block.inverse(this);
+  }
+});
+
 var articleTemplateRun = function () {
   $.get('template/template.handlebars', function(data){
     theTemplate = Handlebars.compile(data);
