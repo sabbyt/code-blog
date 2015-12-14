@@ -1,14 +1,13 @@
+
 $(document).ready(function() {
-  webDB.init();
-  webDB.destroyDB();
-  webDB.importArticlesFrom('../data/hackerIpsum.json');
+  makeNewArticle.renderFromEditButt();
+  makeNewArticle.updateEntry();
 
   // blog.fetchFromDB();
 
   // blog.initArticleEditorPage();
 
   // blog.handleAddButton();
-  // blog.handleUpdateButton();
   // blog.handleDeleteButton();
 
 });

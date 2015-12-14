@@ -27,7 +27,7 @@ $('#write').on('keyup', function(){
   articleList.newSubmission = new Article(articlePreview);
 
   var articleTemplateRun = function () {
-    $.get('../template/template.handlebars',function(data){
+    $.get('/template/template.handlebars',function(data){
       theTemplate = Handlebars.compile(data);
     }).done(function(){
       newPost.articleList = theTemplate(articleList.newSubmission);
@@ -56,7 +56,8 @@ makeNewArticle.draftMode = function() {
   }
 };
 
-$('.genJSON').on('click', function(){
+$('.genJSON').on('click', function(evt){
+  evt.preventDefault();
   localStorage.removeItem('draft');
   makeNewArticle.title = $('#article-title').val();
   makeNewArticle.category = $('#article-category').val();
@@ -82,6 +83,15 @@ makeNewArticle.renderFromEditButt = function() {
   }]), function(data) {
     makeNewArticle.renderToEditPage(result[0]);
   };
+};
+
+makeNewArticle.updateEntry = function() {
+  $('.updatePost').on('click', function() {
+    webDB.execute([{
+      'sql': 'UPDATE articles SET title = ?, author = ?, authorUrl = ?, publishedOn = ?, markdown = ?, category = ? WHERE id = ?',
+      'data': [makeNewArticle.title, makeNewArticle.author, makeNewArticle.authorUrl, makeNewArticle.publishedOn, makeNewArticle.markdown, makeNewArticle.category, makeNewArticle.id]
+    }]);
+  });
 };
 
 $(document).ready(function(){

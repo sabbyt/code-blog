@@ -108,4 +108,6 @@ Assignment for Day 9 of Code Fellows 301:
 
 Assignment for Day 10 of Code Fellows 301:
 
-* Drafts persisting refresh - saved on local storage. 
+* Drafts persisting refresh - saved on local storage.
+
+* Working on rendering blog post from index.html page into editor/articles.html page.
