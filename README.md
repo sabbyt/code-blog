@@ -113,3 +113,7 @@ Assignment for Day 10 of Code Fellows 301:
 * Drafts persisting refresh - saved on local storage.
 
 * Working on rendering blog post from index.html page into editor/articles.html page.
+
+Assignment for Day 11 of Code Fellows 301:
+
+* Created routing file, articleController, aboutController and article index page.
