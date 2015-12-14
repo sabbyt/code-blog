@@ -10,14 +10,17 @@ Handlebars.registerHelper('adminButt', function (block) {
 });
 
 var articleTemplateRun = function () {
-  $.get('template/template.handlebars', function(data){
+  $.get('template/template.html', function(data){
     theTemplate = Handlebars.compile(data);
   }).done(function(){
+    console.log(blog.articles);
     content.articleList = blog.articles.map(theTemplate);
+    console.log(theTemplate);
+    console.log(content.articleList);
     content.articleList.forEach(function(el){
       $('#articlesPlaceholder').append(el);
       console.log('articles appending');
-      blog.truncateArticles(); //truncating here because of ordering - won't work in the index.js file
+      blog.truncateArticles(); //CALLING A FUNCTION: truncating here because of ordering - won't work in the index.js file
     });
   });
 };
