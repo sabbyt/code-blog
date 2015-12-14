@@ -58,10 +58,10 @@ blog.createArticles = function() {
 };
 
 blog.truncateArticles = function() {
-  $('.parBod p:not(:first-child)').hide();
+  $('.parBod :not(:first-child)').hide();
   $('.readButt').on('click', function(event) {
     event.preventDefault();
-    $(this).parent().siblings('.parBod').find('p').removeAttr('style');
+    $(this).parent().siblings('.parBod').children().removeAttr('style');
     $(this).hide();
     console.log('this run');
   });
@@ -83,6 +83,18 @@ blog.hideRedundant = function() {
 
 // **************EDITOR PAGE CODE BELOW
 
+blog.admin = function() {
+  if (!blog.getQuery('admin')) {
+    $('.edit').hide();
+  }
+  $('#articlesPlaceholder').on('click', '.edit', function(event) {
+    event.preventDefault();
+    var speshID = $(this).data('dbid');
+    console.log('im being clicked ' + speshID);
+  });
+};
+
+
 blog.loadArticles = function() {
   $.get('template/template.handlebars', function(data, message, xhr) {
     Article.prototype.template = Handlebars.compile(data);
@@ -97,7 +109,8 @@ blog.loadArticles = function() {
 
 blog.fetchArticles = function(data, message, xhr) {
   var newETag = xhr.getResponseHeader('eTag');
-  if (!localStorage.articlesEtag || localStorage.articlesEtag != newETag) {
+  var localTag = localStorage.articlesEtag;
+  if (!localTag || localTag != newETag) {
     console.log('cache miss!');
     localStorage.articlesEtag = newETag;
     blog.articles = [];
@@ -111,6 +124,11 @@ blog.fetchArticles = function(data, message, xhr) {
 
 blog.fetchJSON = function() {
   $.getJSON('data/hackerIpsum.json', blog.updateFromJSON);
+};
+
+blog.getQuery = function (key) {
+  var match = RegExp('[?&]' + key + '=([^&]*)').exec(window.location.search);
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 };
 
 blog.updateFromJSON = function (data) {

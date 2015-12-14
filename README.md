@@ -99,3 +99,15 @@ Assignment for Day 9 of Code Fellows 301:
 * Template receiving through AJAX and working on all pages.
 
 * Stats updated to include average length of total words and average words by author.
+
+* Truncated articles on index.html and article data converted from markdown.
+
+* eTag checking to local storage added to avoid redundant AJAX requests.
+
+* Added admin editing mode.
+
+Assignment for Day 10 of Code Fellows 301:
+
+* Drafts persisting refresh - saved on local storage.
+
+* Working on rendering blog post from index.html page into editor/articles.html page.
