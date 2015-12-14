@@ -48,29 +48,40 @@ makeNewArticle.draftMode = function() {
   if (draft) {
     makeNewArticle = JSON.parse(draft);
     $('#article-title').val(makeNewArticle.title);
-    $('#article-category').val(makeNewArticle.author);
-    $('#article-author').val(makeNewArticle.authorUrl); $('#article-author-url').val(makeNewArticle.markdown);
-    $('#article-body').val(makeNewArticle.category);
+    $('#article-category').val(makeNewArticle.category);
+    $('#article-author').val(makeNewArticle.author); $('#article-author-url').val(makeNewArticle.authorUrl);
+    $('#article-body').val(makeNewArticle.markdown);
     console.log('draft mode running');
     console.log(draft);
   }
 };
 
-makeNewArticle.JSON = function() {
-  $('.genJSON').on('click', function(){
-    makeNewArticle.title = $('#article-title').val();
-    makeNewArticle.category = $('#article-category').val();
-    makeNewArticle.author = $('#article-author').val();
-    makeNewArticle.authorUrl = $('#article-author-url').val();
-    makeNewArticle.publishedOn = new Date();
-    makeNewArticle.markdown = marked($('#article-body').val());
+$('.genJSON').on('click', function(){
+  localStorage.removeItem('draft');
+  makeNewArticle.title = $('#article-title').val();
+  makeNewArticle.category = $('#article-category').val();
+  makeNewArticle.author = $('#article-author').val();
+  makeNewArticle.authorUrl = $('#article-author-url').val();
+  makeNewArticle.publishedOn = new Date();
+  makeNewArticle.markdown = marked($('#article-body').val());
 
-    var genJSON = new Article(makeNewArticle);
-    blog.loadArticles();
-    localStorage.setItem('draft', JSON.stringify(makeNewArticle));
+  var genJSON = new Article(makeNewArticle);
+  console.log(genJSON);
+  blog.loadArticles();
+  localStorage.setItem('draft', JSON.stringify(makeNewArticle));
+  console.log('im clicking away');
 
-    $('#export-field').text(JSON.stringify(genJSON));
-  });
+  $('#export-field').text(JSON.stringify(genJSON));
+});
+
+makeNewArticle.renderFromEditButt = function() {
+  var dbId = blog.getQuery('id');
+  webDB.execute([{
+    'sql': 'SELECT * FROM articles where id = ?',
+    'data': [dbId]
+  }]), function(data) {
+    makeNewArticle.renderToEditPage(result[0]);
+  };
 };
 
 $(document).ready(function(){
@@ -78,5 +89,4 @@ $(document).ready(function(){
   webDB.destroyDB();
   webDB.importArticlesFrom('../data/hackerIpsum.json');
   makeNewArticle.draftMode();
-  makeNewArticle.JSON();
 });
