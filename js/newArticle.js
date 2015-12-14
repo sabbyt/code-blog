@@ -27,8 +27,8 @@ $('#write').on('keyup', function(){
   articleList.newSubmission = new Article(articlePreview);
 
   var articleTemplateRun = function () {
-  $.get('../template/template.handlebars',function(data){
-    theTemplate = Handlebars.compile(data);
+    $.get('../template/template.handlebars',function(data){
+      theTemplate = Handlebars.compile(data);
     }).done(function(){
       newPost.articleList = theTemplate(articleList.newSubmission);
       $('#articlesPreview').html(newPost.articleList);

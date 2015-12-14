@@ -97,3 +97,5 @@ Assignment for Day 8 of Code Fellows 301:
 Assignment for Day 9 of Code Fellows 301:
 
 * Template receiving through AJAX and working on all pages.
+
+* Stats updated to include average length of total words and average words by author.

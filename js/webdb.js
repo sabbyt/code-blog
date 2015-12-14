@@ -23,7 +23,7 @@ webDB.init = function() {
       webDB.verbose(true);
       webDB.connect('blogDB', 'Blog Database', 5*1024*1024);
       webDB.setupTables();
-      console.log("Init working.");
+      console.log('Init working.');
     } else {
       console.log('Web Databases not supported.');
     }

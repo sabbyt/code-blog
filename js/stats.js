@@ -12,7 +12,7 @@ $.getJSON('data/hackerIpsum.json', function(data){
     stats.totalWords();
     stats.avgOverallWordLength();
     stats.wordsByAuthor();
-});
+  });
 
 stats.avgOverallWordLength = function() {
   var totalWordLength = stats.words.map(function(item) {
@@ -29,7 +29,7 @@ stats.count = function(a,b) {
 
 stats.pluck = function(property, collection) {
   return collection.map(function(e){
-      return e[property];
+    return e[property];
   });
 };
 

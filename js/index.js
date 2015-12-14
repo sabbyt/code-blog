@@ -3,20 +3,20 @@ $(document).ready(function(){
     blog.fullArticles = data;
   })
   .done(function(){
-  blog.createArticles();
-  blog.loadArticles();
-  blog.sortArticlesAuthor();
-  blog.sortArticlesCategory();
-  blog.hideRedundant();
-  blog.truncateArticles();
-  blog.showAboutMe();
-  blog.populateAutFilter();
-  blog.populateCatFilter();
-  blog.sortArticlesDate();
-  articleTemplateRun();
-  blog.truncateArticles();
-  webDB.init();
-  webDB.destroyDB();
-  webDB.importArticlesFrom('data/hackerIpsum.json');
+    blog.createArticles();
+    blog.loadArticles();
+    blog.sortArticlesAuthor();
+    blog.sortArticlesCategory();
+    blog.hideRedundant();
+    blog.truncateArticles();
+    blog.showAboutMe();
+    blog.populateAutFilter();
+    blog.populateCatFilter();
+    blog.sortArticlesDate();
+    articleTemplateRun();
+    blog.truncateArticles();
+    webDB.init();
+    webDB.destroyDB();
+    webDB.importArticlesFrom('data/hackerIpsum.json');
   });
 });
