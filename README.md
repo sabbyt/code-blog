@@ -121,3 +121,7 @@ Assignment for Day 11 of Code Fellows 301:
 * Added route to /about to show about me information.
 
 * Added unique author URL, so that I can see all unique author articles in one place.
+
+Assignment for Day 12 of Code Fellows 301:
+
+* Linked GitHub repositories as a resource and render list of repos on my /about page.

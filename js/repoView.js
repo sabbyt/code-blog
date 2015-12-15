@@ -21,6 +21,7 @@ repoView.render = function(repo) {
 repoView.ui = function() {
   $('#about-me').show();
   $('#articlesPlaceholder').hide();
+  $('.filter').hide();
   var $about = $('#about-me');
   var $ul = $about.find('ul');
 

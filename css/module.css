@@ -6,6 +6,7 @@
   color: #FFFFFF;
   padding:1em;
   border-radius: 25px;
+  margin-top: 1em;
 }
 
 #about-me h4 {
@@ -14,6 +15,7 @@
 
 #about-me ul {
   text-align: left;
+  font-size: 1.2em;
 }
 
 /*MODULES - LIVE PREVIEW*/
@@ -24,7 +26,7 @@
 /*MODULES - FOOTER*/
 #footer {
   width: 100%;
-  background-color: #3F7CAC;
+  background-color: #68C5DB;
   min-height: 2em;
   padding-top: 0.5em;
   border-radius: 25px;
@@ -33,10 +35,11 @@
 
 #footer p {
   text-align: center;
-  color: white;
+  color: black;
   padding: 1em;
   font-family: Garamond, Baskerville, serif;
   font-size: 1.25em;
+  font-weight: bold;
 }
 
 /*MODULES - NAV BAR*/

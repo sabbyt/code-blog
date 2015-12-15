@@ -53,3 +53,10 @@ USER STORIES
 40. As an developer, I want a URL for each blog post, so that individual articles can be shared.
 41. As a reader, I want a link to each article's individual URL, so that I can share articles.
 42. As an author, I want a URL for my own page, so that I can see all my articles in one place.
+
+43. As a developer, I want to treat my GitHub repositories as a resource (with full MVC components), so that I can manage them within my blog.
+44. As the site owner, I want to highlight certain repos on my /about page so that everyone can see the great projects I am working on.
+
+45. As the site owner, I also want to show off other recent GitHub activity, so that everyone knows how active I am on GitHub. Get creative!
+46. As the site owner, I want my lists of GitHub activity well designed, so visitors like looking at my page.
+47. As a developer, I want people to be able to "watch" or "star" my repos with their own GitHub accounts, so that my repos get better numbers.
