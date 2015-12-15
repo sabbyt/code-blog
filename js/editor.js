@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   makeNewArticle.renderFromEditButt();
   makeNewArticle.updateEntry();
@@ -9,5 +8,4 @@ $(document).ready(function() {
 
   // blog.handleAddButton();
   // blog.handleDeleteButton();
-
 });
