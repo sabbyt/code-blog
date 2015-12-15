@@ -9,13 +9,19 @@
   margin-top: 1em;
 }
 
-#about-me h4 {
+#recentWork h4 {
   text-align: left;
 }
 
-#about-me ul {
+#recentWork ul {
   text-align: left;
   font-size: 1.2em;
+}
+
+#githubInfo h2 {
+  text-align: center;
+  font-size: 2.4em;
+  padding-top: 1em;
 }
 
 /*MODULES - LIVE PREVIEW*/

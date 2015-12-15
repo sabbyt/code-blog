@@ -1,6 +1,7 @@
 var repos = {};
 
 repos.all = [];
+repos.activity = [];
 
 repos.requestAll = function(callback) {
   $.ajax({
@@ -8,7 +9,6 @@ repos.requestAll = function(callback) {
     url: 'https://api.github.com/users/sabbyt/repos?sort=updated',
     headers: {Authorization: 'token ' + githubToken},
   }).done(function(data){
-    console.log(data);
     repos.all = data;
     //then render in repoView
   }).done(callback);
