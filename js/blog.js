@@ -48,11 +48,9 @@ blog.createArticles = function() {
   for (var i=0; i<blog.fullArticles.length; i+=1) {
     if (blog.fullArticles[i].publishedOn === '' || blog.fullArticles[i].publishedOn.toLowerCase() === 'draft') {
       console.log('Unpublished draft');
-      console.log('Im running');
     }else{
       var callObject = new Article(blog.fullArticles[i]);
       blog.articles.push(callObject);
-      console.log('Im putting stuff in the blog.articles');
     }
   }
 };
@@ -63,7 +61,6 @@ blog.truncateArticles = function() {
     event.preventDefault();
     $(this).parent().siblings('.parBod').children().removeAttr('style');
     $(this).hide();
-    console.log('this run');
   });
 };
 
@@ -96,14 +93,13 @@ blog.admin = function() {
 
 
 blog.loadArticles = function() {
-  $.get('template/template.handlebars', function(data, message, xhr) {
+  $.get('template/template.html', function(data, message, xhr) {
     Article.prototype.template = Handlebars.compile(data);
     $.ajax({
       type: 'HEAD',
       url: 'data/hackerIpsum.json',
       success: blog.fetchArticles
     });
-    console.log('done loading articles');
   });
 };
 

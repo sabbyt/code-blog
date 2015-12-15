@@ -45,3 +45,11 @@ USER STORIES
 34. As an author, I want to have draft posts, so that I can save my writing without publishing.
 
 35. As a developer, I want a normalized database, so that author info and article info is more flexible and consistent.
+
+36. As a developer, I want a routing file, so that I have a central place to define what URLs my app can handle.
+37. As a developer, I want an articleController, so that I can group together actions related to the article resource.
+38. As an reader, I want to view the article index, so that I can read all the articles.
+39. As a reader, I want to view '/about', so that I can learn more about the brilliant dev who created this site.
+40. As an developer, I want a URL for each blog post, so that individual articles can be shared.
+41. As a reader, I want a link to each article's individual URL, so that I can share articles.
+42. As an author, I want a URL for my own page, so that I can see all my articles in one place.
