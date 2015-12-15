@@ -45,26 +45,34 @@ articlesController.author = function() {
         content.articleList = blog.articles.map(theTemplate);
         content.articleList.forEach(function(el){
           $('#articlesPlaceholder').append(el);
-          console.log('articles appending');
           blog.truncateArticles(); //CALLING A FUNCTION: truncating here because of ordering - won't work in the index.js file
-
-          //here filtering for author
-          $('article').hide();
-          console.log('this is running');
-          var theChosenOne = 'Dr. Tressie Kuphal';
-
-          for (var i=0; i<blog.fullArticles.length; i+=1) {
-            var matchAut = blog.fullArticles[i].author.match(theChosenOne);
-
-            if (matchAut !== null) {
-              $('article').find('h5:contains("'+theChosenOne+'")').parentsUntil('main').removeAttr('style');
-              console.log('this is appending');
-            }
-          }
         });
+
+          //here filtering for author based on query string input
+        $('article').hide();
+        var theChosenOne = window.location.search;
+        var string = theChosenOne.split('');
+        string.shift();
+        var updatedString = string.join('');
+        var temp = [];
+
+        for (var j=0; j<authorLastName.length; j+=1){
+          var matching = authorLastName[j].easyName.match(updatedString);
+          var fullName = authorLastName[j].fullName;
+          if (matching != null) {
+            temp.push(fullName);
+          }
+        };
+
+        for (var i=0; i<blog.fullArticles.length; i+=1) {
+          var matchAut = blog.fullArticles[i].author.match(temp);
+          if (matchAut !== null) {
+            var $aut = $('article').find('h5:contains("'+temp+'")').parentsUntil('main').removeAttr('style');
+          }
+        }
       });
     };
-
+    //generating template
     searchAuthorTemplate();
   });
 };

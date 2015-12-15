@@ -52,7 +52,6 @@ makeNewArticle.draftMode = function() {
     $('#article-author').val(makeNewArticle.author); $('#article-author-url').val(makeNewArticle.authorUrl);
     $('#article-body').val(makeNewArticle.markdown);
     console.log('draft mode running');
-    console.log(draft);
   }
 };
 
@@ -67,10 +66,8 @@ $('.genJSON').on('click', function(evt){
   makeNewArticle.markdown = marked($('#article-body').val());
 
   var genJSON = new Article(makeNewArticle);
-  console.log(genJSON);
   blog.loadArticles();
   localStorage.setItem('draft', JSON.stringify(makeNewArticle));
-  console.log('im clicking away');
 
   $('#export-field').text(JSON.stringify(genJSON));
 });

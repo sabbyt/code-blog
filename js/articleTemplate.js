@@ -16,7 +16,6 @@ var articleTemplateRun = function () {
     content.articleList = blog.articles.map(theTemplate);
     content.articleList.forEach(function(el){
       $('#articlesPlaceholder').append(el);
-      console.log('articles appending');
       blog.truncateArticles(); //CALLING A FUNCTION: truncating here because of ordering - won't work in the index.js file
     });
   });

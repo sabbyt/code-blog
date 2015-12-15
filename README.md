@@ -119,3 +119,5 @@ Assignment for Day 11 of Code Fellows 301:
 * Created routing file, articleController, aboutController and article index page.
 
 * Added route to /about to show about me information.
+
+* Added unique author URL, so that I can see all unique author articles in one place.
