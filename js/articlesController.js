@@ -48,26 +48,26 @@ articlesController.author = function() {
           blog.truncateArticles(); //CALLING A FUNCTION: truncating here because of ordering - won't work in the index.js file
         });
 
-          //here filtering for author based on query string input
+          //here filtering for author based on query string input after /author=
         $('article').hide();
         var theChosenOne = window.location.search;
         var string = theChosenOne.split('');
         string.shift();
-        var updatedString = string.join('');
+        var cleanString = string.join('');
         var temp = [];
-
+        //for loop to match query string and data
         for (var j=0; j<authorLastName.length; j+=1){
-          var matching = authorLastName[j].easyName.match(updatedString);
+          var matching = authorLastName[j].easyName.match(cleanString);
           var fullName = authorLastName[j].fullName;
           if (matching != null) {
             temp.push(fullName);
           }
         };
-
+        //for loop to render matching author on page
         for (var i=0; i<blog.fullArticles.length; i+=1) {
           var matchAut = blog.fullArticles[i].author.match(temp);
           if (matchAut !== null) {
-            var $aut = $('article').find('h5:contains("'+temp+'")').parentsUntil('main').removeAttr('style');
+            $('article').find('h5:contains("'+temp+'")').parentsUntil('main').removeAttr('style');
           }
         }
       });
