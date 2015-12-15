@@ -18,6 +18,22 @@ header h1 {
   padding-top:0.5em;
 }
 
+h2, h3, h4, h5 {
+  font-family: Garamond, Baskerville, serif;
+  font-size: 1.5em;
+}
+
+h6 {
+  font-family: Garamond, Baskerville, serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+div {
+margin-top: 2em;
+margin-bottom: 2em;
+}
+
 article {
   font-family: Garamond, Baskerville, serif;
   padding-top: 2em;
