@@ -96,7 +96,7 @@ blog.admin = function() {
 
 
 blog.loadArticles = function() {
-  $.get('template/template.handlebars', function(data, message, xhr) {
+  $.get('template/template.html', function(data, message, xhr) {
     Article.prototype.template = Handlebars.compile(data);
     $.ajax({
       type: 'HEAD',
