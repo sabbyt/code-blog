@@ -8,6 +8,14 @@
   border-radius: 25px;
 }
 
+#about-me h4 {
+  text-align: left;
+}
+
+#about-me ul {
+  text-align: left;
+}
+
 /*MODULES - LIVE PREVIEW*/
 #articlesPreview {
   padding-bottom: 2em;
