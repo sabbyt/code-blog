@@ -127,3 +127,7 @@ Assignment for Day 12 of Code Fellows 301:
 * Linked GitHub repositories as a resource and rendered list of repos on my /about page.
 
 * Added recent activity/commits to render in /about page.  
+
+Assignment for Day 13 of Code Fellows 301:
+
+* Deployed on heroku. Removed GitHub token file and moved token to heroku config.
