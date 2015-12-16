@@ -4,7 +4,7 @@ page('/default', articlesController.index);
 
 page('/admin', articlesController.index);
 
-page('/about', aboutController.index);
+page('/about', repoController.index);
 
 page('/articles', articlesController.index);
 

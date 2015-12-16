@@ -25,7 +25,7 @@
         <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="img/wassap.svg"/></a></li>
       </ul>
 
-      <div class="container center">
+      <div class="filter container center">
         <section class = "form">
           <form action="js/articles.js" id="authorFilter">Filter by Author:</form>
           <select name="authorList" form="authorList" id="selectAuthor">
@@ -47,8 +47,18 @@
     <div id="articlesPlaceholder"></div>
 
     <article id="about-me" class="container">
-      <h4>About Me!</h4>
+      <h1>About Me!</h1>
       <p>I love unicorns!</p>
+      <div id="githubInfo">
+        <img src="https://avatars.githubusercontent.com/u/10805641?v=3">
+        <h2>Sabrina Tee</h2>
+        <h4>Latest Commits:</h4>
+        <ul></ul>
+      </div>
+      <div id="recentWork">
+        <h4>Recent Work:</h4>
+        <ul></ul>
+      </div>
     </article>
   </main>
 
@@ -63,15 +73,22 @@
   <script src="vendor/handlebars-v4.0.5.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+  <script type="text/javascript" src="js/githubToken.js"></script>
+
   <script type="text/javascript" src="js/webdb.js"></script>
   <script type="text/javascript" src="js/blog.js"></script>
   <script type="text/javascript" src="js/filters.js"></script>
   <script type="text/javascript" src="data/blogArticles.js"></script>
   <script type="text/javascript" src="data/easyName.js"></script>
+
+  <script type="text/javascript" src="js/repoView.js"></script>
   <script type="text/javascript" src="js/articles.js"></script>
+  <script type="text/javascript" src="js/repo.js"></script>
   <script type="text/javascript" src="js/articleTemplate.js"></script>
+
   <script type="text/javascript" src="js/articlesController.js"></script>
-  <script type="text/javascript" src="js/aboutController.js"></script>
+  <script type="text/javascript" src="js/repoController.js"></script>
   <script type="text/javascript" src="js/router.js"></script>
 </body>
 

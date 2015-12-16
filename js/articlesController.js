@@ -50,7 +50,7 @@ articlesController.author = function() {
 
           //here filtering for author based on query string input after /author=
         $('article').hide();
-        var theChosenOne = window.location.search;
+        var theChosenOne = (window.location.search).toLowerCase();
         var string = theChosenOne.split('');
         string.shift();
         var cleanString = string.join('');

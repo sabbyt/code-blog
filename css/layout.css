@@ -14,3 +14,15 @@
   width:1.5em;
   padding-top:0.5em;
 }
+
+#githubInfo {
+  width: 60%;
+  float: left;
+  display:inline-block;
+}
+
+#recentWork {
+  width: 40%;
+  float: left;
+  display:inline-block;
+}
