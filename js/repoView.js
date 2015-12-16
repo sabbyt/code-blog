@@ -9,22 +9,33 @@ repoView.index = function() {
     return true;
   })
   .forEach(_append);
+  repos.requestCommits(repoView.commits);
+};
+
+repoView.commits = function(repo) {
+  repoView.renderCommits(repo);
 };
 
 repoView.render = function(repo) {
   var allCaps = repo.name.toUpperCase();
   var wrap = '<a href="'+repo.html_url+'" target="_blank" >'+allCaps+'</a>';
-  console.log(repo);
   return $('<li>').html(wrap);
+};
+
+repoView.renderCommits = function(repo) {
+  $.each(repos.activity, function(i){
+    var commitURL = repos.activity[i].html_url;
+    var wrap = '<li><a href="'+commitURL+'" target="_blank" > Latest Commit: '+[i+1]+'</a></li>';
+    $('#githubInfo ul').append(wrap);
+  });
 };
 
 repoView.ui = function() {
   $('#about-me').show();
   $('#articlesPlaceholder').hide();
   $('.filter').hide();
-  var $recentWork = $('#recentWork');
-  var $ul = $recentWork.find('ul');
-
+  var $about = $('#about-me');
+  var $ul = $about.find('ul');
   $ul.empty();
-  $recentWork.fadeIn();
+  $about.fadeIn();
 };

@@ -124,4 +124,6 @@ Assignment for Day 11 of Code Fellows 301:
 
 Assignment for Day 12 of Code Fellows 301:
 
-* Linked GitHub repositories as a resource and render list of repos on my /about page.
+* Linked GitHub repositories as a resource and rendered list of repos on my /about page.
+
+* Added recent activity/commits to render in /about page.  
