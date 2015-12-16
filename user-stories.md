@@ -60,3 +60,10 @@ USER STORIES
 45. As the site owner, I also want to show off other recent GitHub activity, so that everyone knows how active I am on GitHub. Get creative!
 46. As the site owner, I want my lists of GitHub activity well designed, so visitors like looking at my page.
 47. As a developer, I want people to be able to "watch" or "star" my repos with their own GitHub accounts, so that my repos get better numbers.
+
+48. As a developer, I want my app to run in a development environment that matches production, so that I can reduce bugs related to infrastructure surprises.
+49. As a developer, I want my secret tokens accessed only through environment variables, so that I can keep them secure.
+50. As a site owner, I want my site running on a robust hosting platform, so that I don't have to hire a sysadmin.
+
+51. As a site owner, I want [www.my-own-domain-name.io] hooked up to my Heroku app, so that I don't have to explain to people how to spell "myblog.herokuapp.com" over the phone.
+52. As a site owner, I want my root domain to redirect to the www subdomain, so people can type in either one to load my app.
