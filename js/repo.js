@@ -8,7 +8,7 @@ repos.requestAll = function(callback) {
     type: 'GET',
     url: '/github/users/sabbyt/repos?sort=updated',
     success: function(data, message, xhr) {
-      repos.all =data;
+      repos.all = data;
     }
   }).done(callback);
 };
