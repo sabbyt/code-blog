@@ -12,8 +12,8 @@ repoView.index = function() {
   repos.requestCommits(repoView.commits);
 };
 
-repoView.commits = function(repo) {
-  repoView.renderCommits(repo);
+repoView.commits = function() {
+  repoView.renderCommits();
 };
 
 repoView.render = function(repo) {
@@ -22,7 +22,7 @@ repoView.render = function(repo) {
   return $('<li>').html(wrap);
 };
 
-repoView.renderCommits = function(repo) {
+repoView.renderCommits = function() {
   $.each(repos.activity, function(i){
     var commitURL = repos.activity[i].html_url;
     var wrap = '<li><a href="'+commitURL+'" target="_blank" > Latest Commit: '+[i+1]+'</a></li>';
