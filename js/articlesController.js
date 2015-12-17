@@ -76,3 +76,15 @@ articlesController.author = function() {
     searchAuthorTemplate();
   });
 };
+
+articlesController.category = function(){
+  var categoryData = function(data) {
+    ctx.data = data;
+    next();
+  };
+  Article.findByCategory(ctx.params.category, categoryData);
+};
+
+articlesController.show = function(){
+  
+};
