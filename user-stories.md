@@ -67,3 +67,9 @@ USER STORIES
 
 51. As a site owner, I want [www.my-own-domain-name.io] hooked up to my Heroku app, so that I don't have to explain to people how to spell "myblog.herokuapp.com" over the phone.
 52. As a site owner, I want my root domain to redirect to the www subdomain, so people can type in either one to load my app.
+
+53. As a reader, I want to filter articles by category, so I can discover the articles I'm most interested in.
+
+54. As an author, I want my own URL, so that I can share all my posts in one place.
+55. As a reader, I want articles abbreviated on the index page, so that I can scan the list faster to decide what I want to click through to read.
+56. As a reader, I want to comment on articles, so that I can share my awesome insights with other readers.

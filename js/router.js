@@ -10,4 +10,6 @@ page('/articles', articlesController.index);
 
 page('/author=', articlesController.author);
 
+page('/category/:category', articlesController.category, articlesController.show);
+
 page.start();

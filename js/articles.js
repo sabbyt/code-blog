@@ -49,3 +49,15 @@ Article.prototype.timestamp = function( ) {
 Article.prototype.toHTML = function() {
   return this.template(this);
 };
+
+Article.findByCategory = function(category, callback) {
+  webDB.execute(
+    [
+      {
+        'sql': 'SELECT * FROM articles WHERE category = ?',
+        'data': [category]
+      }
+    ],
+    callback
+  );
+};
