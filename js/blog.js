@@ -70,7 +70,7 @@ blog.showAboutMe = function() {
     $('#about-me').prependTo('main').fadeIn(1000);
     repoController.index();
     $('#about-click').click(function(){
-      $('#about-me').hide().reset();
+      $('#about-me').hide();
     });
   });
 };
