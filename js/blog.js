@@ -68,6 +68,7 @@ blog.showAboutMe = function() {
   $('#about-click').on('click', function(event){
     event.preventDefault();
     $('#about-me').prependTo('main').fadeIn(1000);
+    repoController.index();
     $('#about-click').click(function(){
       $('#about-me').hide().reset();
     });
