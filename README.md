@@ -133,3 +133,7 @@ Assignment for Day 13 of Code Fellows 301:
 * Deployed on heroku. Removed GitHub token file and moved token to heroku config.
 
 * Added custom domain and linked to heroku - www.sabrinatee.com
+
+Assignment for Day 14 of Code Fellows 301:
+
+* Filtered articles by category.
