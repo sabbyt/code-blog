@@ -108,14 +108,14 @@ blog.fetchArticles = function(data, message, xhr) {
   var newETag = xhr.getResponseHeader('eTag');
   var localTag = localStorage.articlesEtag;
   if (!localTag || localTag != newETag) {
-    console.log('cache miss!');
+    console.log('Cache miss!');
     localStorage.articlesEtag = newETag;
     blog.articles = [];
     webDB.execute(
       'DELETE FROM articles;', //DELETE ALL THE FILES
       blog.fetchJSON);
   } else {
-    console.log('cache hit! never mind do nothing');
+    console.log('Cache hit! Never mind do nothing');
   }
 };
 

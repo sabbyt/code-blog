@@ -82,17 +82,13 @@ articlesController.setUpTable = function(ctx, next) {
   webDB.destroyDB();
   webDB.importArticlesFrom('/data/hackerIpsum.json');
   $.getJSON('../data/hackerIpsum.json', function(data){
-    console.log('check check');
   }).done(function(){
-    console.log('one');
     next();
   });
 };
 
 articlesController.category = function(ctx, next) {
   var categoryData = function(data) {
-    console.log('three');
-    console.log(data);
     ctx.articles = data;
     next();
   };
@@ -100,13 +96,11 @@ articlesController.category = function(ctx, next) {
 };
 
 articlesController.show = function(ctx, next) {
-  console.log('four');
   var formatted = [];
   for (var i=0; i<ctx.articles.length; i+=1) {
     var callObject = new Article(ctx.articles[i]);
     formatted.push(callObject);
   }
-  console.log(formatted);
   $.get('/template/template.html', function(data){
     theTemplate = Handlebars.compile(data);
   }).done(function(){
