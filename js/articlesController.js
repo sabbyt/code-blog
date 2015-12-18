@@ -18,7 +18,7 @@ articlesController.index = function() {
     blog.admin();
     webDB.init();
     webDB.destroyDB();
-    webDB.importArticlesFrom('data/hackerIpsum.json');
+    webDB.importArticlesFrom('/data/hackerIpsum.json');
   });
 };
 
@@ -77,14 +77,38 @@ articlesController.author = function() {
   });
 };
 
-articlesController.category = function(){
+articlesController.setUpTable = function(ctx, next) {
+  webDB.init();
+  webDB.destroyDB();
+  webDB.importArticlesFrom('/data/hackerIpsum.json');
+  $.getJSON('../data/hackerIpsum.json', function(data){
+  }).done(function(){
+    next();
+  });
+};
+
+articlesController.category = function(ctx, next) {
   var categoryData = function(data) {
-    ctx.data = data;
+    ctx.articles = data;
     next();
   };
   Article.findByCategory(ctx.params.category, categoryData);
 };
 
-articlesController.show = function(){
-  
+articlesController.show = function(ctx, next) {
+  var formatted = [];
+  for (var i=0; i<ctx.articles.length; i+=1) {
+    var callObject = new Article(ctx.articles[i]);
+    formatted.push(callObject);
+  }
+  $.get('/template/template.html', function(data){
+    theTemplate = Handlebars.compile(data);
+  }).done(function(){
+    content.categoryList = formatted.map(theTemplate);
+    $('.filter').hide();
+    content.categoryList.forEach(function(el){
+      $('#articlesPlaceholder').append(el);
+      blog.truncateArticles();
+    });
+  });
 };

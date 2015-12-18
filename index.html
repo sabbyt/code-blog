@@ -4,13 +4,13 @@
   <title>Sabrina's Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="vendor/normalize.css">
-  <link rel="stylesheet" type="text/css" href="vendor/skeleton.css">
-  <link rel="stylesheet" type="text/css" href="css/base.css">
-  <link rel="stylesheet" type="text/css" href="css/layout.css">
-  <link rel="stylesheet" type="text/css" href="css/module.css">
-  <link rel="stylesheet" type="text/css" href="css/state.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <link rel="stylesheet" type="text/css" href="/vendor/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/vendor/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/css/layout.css">
+  <link rel="stylesheet" type="text/css" href="/css/module.css">
+  <link rel="stylesheet" type="text/css" href="/css/state.css">
+  <link rel="stylesheet" type="text/css" href="/css/theme.css">
 </head>
 
 <body>
@@ -18,23 +18,23 @@
     <h1>Sabrina Tee</h1>
     <nav id="navbar" class="container">
       <ul>
-        <li class="activePage"><a href="#"><span>HOME</span><br/><img class="icon" src="img/home5.svg"/></a></li>
-        <li><a href="#" id="about-click"><span>ABOUT</span><br/><img class="icon" src="img/smiling36.svg"/></a></li>
-        <li><a href="https://github.com/sabbyt" target="_blank"><span>GITHUB</span><br/><img class="icon" src="img/cat6.svg"/></a></li>
-        <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="img/linkedin.svg"/></a></li>
-        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="img/wassap.svg"/></a></li>
+        <li class="activePage"><a href="/default"><span>HOME</span><br/><img class="icon" src="/img/home5.svg"/></a></li>
+        <li><a href="/about" id="about-click"><span>ABOUT</span><br/><img class="icon" src="/img/smiling36.svg"/></a></li>
+        <li><a href="https://github.com/sabbyt" target="_blank"><span>GITHUB</span><br/><img class="icon" src="/img/cat6.svg"/></a></li>
+        <li><a href="http://linkedin.com/in/lihuatee" target="_blank"><span>RESUME</span><br/><img class="icon" src="/img/linkedin.svg"/></a></li>
+        <li><a href="#"><span>CONTACT ME</span><br/><img class="icon" src="/img/wassap.svg"/></a></li>
       </ul>
 
       <div class="filter container center">
         <section class = "form">
-          <form action="js/articles.js" id="authorFilter">Filter by Author:</form>
+          <form action="/js/articles.js" id="authorFilter">Filter by Author:</form>
           <select name="authorList" form="authorList" id="selectAuthor">
             <option id="dropdownAuthor"></option>
           </select>
         </section>
 
         <section class = "form">
-          <form action="js/articles.js" id="catFilter">Filter by Category:</form>
+          <form action="/js/articles.js" id="catFilter">Filter by Category:</form>
           <select name="categoryList" form="categoryList" id="selectCat">
             <option id="dropdownCategory"></option>
           </select>
@@ -69,25 +69,25 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <script src="vendor/html5sql.js" charset="utf-8"></script>
-  <script src="vendor/handlebars-v4.0.5.js"></script>
+  <script src="/vendor/html5sql.js" charset="utf-8"></script>
+  <script src="/vendor/handlebars-v4.0.5.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
-  <script type="text/javascript" src="js/webdb.js"></script>
-  <script type="text/javascript" src="js/blog.js"></script>
-  <script type="text/javascript" src="js/filters.js"></script>
-  <script type="text/javascript" src="data/blogArticles.js"></script>
-  <script type="text/javascript" src="data/easyName.js"></script>
+  <script type="text/javascript" src="/js/webdb.js"></script>
+  <script type="text/javascript" src="/js/blog.js"></script>
+  <script type="text/javascript" src="/js/filters.js"></script>
+  <script type="text/javascript" src="/data/blogArticles.js"></script>
+  <script type="text/javascript" src="/data/easyName.js"></script>
 
-  <script type="text/javascript" src="js/repoView.js"></script>
-  <script type="text/javascript" src="js/articles.js"></script>
-  <script type="text/javascript" src="js/repo.js"></script>
-  <script type="text/javascript" src="js/articleTemplate.js"></script>
+  <script type="text/javascript" src="/js/repoView.js"></script>
+  <script type="text/javascript" src="/js/articles.js"></script>
+  <script type="text/javascript" src="/js/repo.js"></script>
+  <script type="text/javascript" src="/js/articleTemplate.js"></script>
 
-  <script type="text/javascript" src="js/articlesController.js"></script>
-  <script type="text/javascript" src="js/repoController.js"></script>
-  <script type="text/javascript" src="js/router.js"></script>
+  <script type="text/javascript" src="/js/articlesController.js"></script>
+  <script type="text/javascript" src="/js/repoController.js"></script>
+  <script type="text/javascript" src="/js/router.js"></script>
 </body>
 
 </html>

@@ -51,7 +51,7 @@ makeNewArticle.draftMode = function() {
     $('#article-category').val(makeNewArticle.category);
     $('#article-author').val(makeNewArticle.author); $('#article-author-url').val(makeNewArticle.authorUrl);
     $('#article-body').val(makeNewArticle.markdown);
-    console.log('draft mode running');
+    console.log('Draft mode running');
   }
 };
 

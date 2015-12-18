@@ -98,7 +98,7 @@ blog.loadArticles = function() {
     Article.prototype.template = Handlebars.compile(data);
     $.ajax({
       type: 'HEAD',
-      url: 'data/hackerIpsum.json',
+      url: '/data/hackerIpsum.json',
       success: blog.fetchArticles
     });
   });
@@ -108,19 +108,19 @@ blog.fetchArticles = function(data, message, xhr) {
   var newETag = xhr.getResponseHeader('eTag');
   var localTag = localStorage.articlesEtag;
   if (!localTag || localTag != newETag) {
-    console.log('cache miss!');
+    console.log('Cache miss!');
     localStorage.articlesEtag = newETag;
     blog.articles = [];
     webDB.execute(
       'DELETE FROM articles;', //DELETE ALL THE FILES
       blog.fetchJSON);
   } else {
-    console.log('cache hit! never mind do nothing');
+    console.log('Cache hit! Never mind do nothing');
   }
 };
 
 blog.fetchJSON = function() {
-  $.getJSON('data/hackerIpsum.json', blog.updateFromJSON);
+  $.getJSON('/data/hackerIpsum.json', blog.updateFromJSON);
 };
 
 blog.getQuery = function (key) {
