@@ -61,3 +61,15 @@ Article.findByCategory = function(category, callback) {
     callback
   );
 };
+
+Article.findByAuthor = function(author, callback) {
+  webDB.execute(
+    [
+      {
+        'sql': 'SELECT * FROM articles WHERE author = ?',
+        'data': [author]
+      }
+    ],
+    callback
+  );
+};

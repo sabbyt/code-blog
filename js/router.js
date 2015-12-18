@@ -8,7 +8,11 @@ page('/about', repoController.index);
 
 page('/articles', articlesController.index);
 
-page('/author=', articlesController.author);
+page('/author/:author',
+  articlesController.setUpTable,
+  articlesController.author,
+  articlesController.show
+);
 
 page('/category/:category',
   articlesController.setUpTable,
