@@ -25,11 +25,9 @@ articlesController.index = function() {
 articlesController.author = function(ctx, next) {
   var authorData = function(data) {
     ctx.articles = data;
-    console.log(ctx.articles);
     next();
   };
   Article.findByAuthor(ctx.params.author, authorData);
-  console.log(ctx.params.author);
 };
 
 articlesController.setUpTable = function(ctx, next) {
@@ -51,6 +49,8 @@ articlesController.category = function(ctx, next) {
 };
 
 articlesController.show = function(ctx, next) {
+  $('.filter').hide();
+
   var formatted = [];
   for (var i=0; i<ctx.articles.length; i+=1) {
     var callObject = new Article(ctx.articles[i]);
@@ -60,7 +60,6 @@ articlesController.show = function(ctx, next) {
     theTemplate = Handlebars.compile(data);
   }).done(function(){
     content.categoryList = formatted.map(theTemplate);
-    $('.filter').hide();
     content.categoryList.forEach(function(el){
       $('#articlesPlaceholder').append(el);
       blog.truncateArticles();
