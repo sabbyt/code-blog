@@ -51,6 +51,7 @@ Article.prototype.toHTML = function() {
 };
 
 Article.findByCategory = function(category, callback) {
+  console.log('two');
   webDB.execute(
     [
       {

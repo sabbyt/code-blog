@@ -98,7 +98,7 @@ blog.loadArticles = function() {
     Article.prototype.template = Handlebars.compile(data);
     $.ajax({
       type: 'HEAD',
-      url: 'data/hackerIpsum.json',
+      url: '/data/hackerIpsum.json',
       success: blog.fetchArticles
     });
   });
@@ -120,7 +120,7 @@ blog.fetchArticles = function(data, message, xhr) {
 };
 
 blog.fetchJSON = function() {
-  $.getJSON('data/hackerIpsum.json', blog.updateFromJSON);
+  $.getJSON('/data/hackerIpsum.json', blog.updateFromJSON);
 };
 
 blog.getQuery = function (key) {
