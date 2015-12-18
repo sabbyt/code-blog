@@ -57,9 +57,11 @@ blog.createArticles = function() {
 
 blog.truncateArticles = function() {
   $('.parBod :not(:first-child)').hide();
+  $('#disqus_thread').hide();
   $('.readButt').on('click', function(event) {
     event.preventDefault();
     $(this).parent().siblings('.parBod').children().removeAttr('style');
+    $('#disqus_thread').show();
     $(this).hide();
   });
 };

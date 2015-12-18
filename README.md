@@ -139,3 +139,5 @@ Assignment for Day 14 of Code Fellows 301:
 * Filtered articles by category using page.js to formulate path, retrieve data from SQL and then populate the DOM after passing through object as new Article through Handlebars.
 
 * Cleaned up code to node server.js settings.
+
+* Added comment box to each article.
