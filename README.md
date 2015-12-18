@@ -140,4 +140,4 @@ Assignment for Day 14 of Code Fellows 301:
 
 * Cleaned up code to node server.js settings.
 
-* Added comment box to each article.
+* Added comment box to each article - but currently only one comment box being appended.
