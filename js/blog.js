@@ -62,6 +62,7 @@ blog.truncateArticles = function() {
     event.preventDefault();
     $(this).parent().siblings('.parBod').children().removeAttr('style');
     $('#disqus_thread').show();
+    $(this).parent().append($('#disqus_thread'));
     $(this).hide();
   });
 };
