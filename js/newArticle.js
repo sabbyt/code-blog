@@ -91,6 +91,22 @@ makeNewArticle.updateEntry = function() {
   });
 };
 
+makeNewArticle.addEntry = function(article) {
+  $('.addPost').on('click', function() {
+    makeNewArticle.title = $('#article-title').val();
+    makeNewArticle.author = $('#article-author').val();
+    makeNewArticle.authorUrl = $('#article-author-url').val();
+    makeNewArticle.publishedOn = new Date();
+    makeNewArticle.markdown = $('#article-body').val();
+    makeNewArticle.category = $('#article-category').val();
+    webDB.execute([{
+      'sql': 'INSERT INTO articles (title, author, authorUrl, publishedOn, markdown, category) VALUES (?, ?, ?, ?, ?, ?);',
+      'data': [makeNewArticle.title, makeNewArticle.author, makeNewArticle.authorUrl, makeNewArticle.publishedOn, makeNewArticle.markdown, makeNewArticle.category]
+    }]);
+    console.log('this run');
+  });
+};
+
 $(document).ready(function(){
   webDB.init();
   webDB.destroyDB();

@@ -67,7 +67,7 @@ stats.wordsByAuthor = function() {
     }
     if (temp.length > 1) {
       var totalWordsByAuthor = temp.reduce(stats.count);
-      $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + totalWordsByAuthor/temp.length + ' words</p>');
+      $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + Math.round(totalWordsByAuthor/temp.length) + ' words</p>');
     } else {
       $('#avgByAuthor').append('<p>Average words per article by ' + authorMatch + ': ' + wordCountByAuthor + ' words</p>');
     }
